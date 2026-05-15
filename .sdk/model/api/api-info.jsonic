@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Data.gov"
+        url: "https://data.gov/developers/apis/"
+      }
+      description: "Provides metadata about datasets in the data.gov catalog powered by CKAN, including URLs and descriptions, but not the actual data within each dataset."
+      license: {
+        name: "Public Domain"
+        url: "https://data.gov"
+      }
+      servers: [
+        {
+          description: "Data.gov CKAN API Server"
+          url: "http://catalog.data.gov/api/3"
+        }
+      ]
+      title: "Data.gov CKAN API"
+      version: "3.0.0"
+    }
+  }
+}
+
+}

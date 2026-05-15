@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "dataset": {
+      "DATASET00": {
+        "help": "s1e",
+        "result": {},
+        "success": true
+      },
+      "DATASET01": {
+        "help": "s3c",
+        "result": {},
+        "success": true
+      },
+      "DATASET02": {
+        "help": "s5a",
+        "result": {},
+        "success": true
+      }
+    }
+  },
+  "new": {
+    "dataset": {
+      "dataset_ref01": {
+        "help": "s78",
+        "result": {},
+        "success": true
+      }
+    }
+  }
+}

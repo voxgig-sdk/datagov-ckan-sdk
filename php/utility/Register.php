@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// DatagovCkan SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+DatagovCkanUtility::setRegistrar(function (DatagovCkanUtility $u): void {
+    $u->clean = [DatagovCkanClean::class, 'call'];
+    $u->done = [DatagovCkanDone::class, 'call'];
+    $u->make_error = [DatagovCkanMakeError::class, 'call'];
+    $u->feature_add = [DatagovCkanFeatureAdd::class, 'call'];
+    $u->feature_hook = [DatagovCkanFeatureHook::class, 'call'];
+    $u->feature_init = [DatagovCkanFeatureInit::class, 'call'];
+    $u->fetcher = [DatagovCkanFetcher::class, 'call'];
+    $u->make_fetch_def = [DatagovCkanMakeFetchDef::class, 'call'];
+    $u->make_context = [DatagovCkanMakeContext::class, 'call'];
+    $u->make_options = [DatagovCkanMakeOptions::class, 'call'];
+    $u->make_request = [DatagovCkanMakeRequest::class, 'call'];
+    $u->make_response = [DatagovCkanMakeResponse::class, 'call'];
+    $u->make_result = [DatagovCkanMakeResult::class, 'call'];
+    $u->make_point = [DatagovCkanMakePoint::class, 'call'];
+    $u->make_spec = [DatagovCkanMakeSpec::class, 'call'];
+    $u->make_url = [DatagovCkanMakeUrl::class, 'call'];
+    $u->param = [DatagovCkanParam::class, 'call'];
+    $u->prepare_auth = [DatagovCkanPrepareAuth::class, 'call'];
+    $u->prepare_body = [DatagovCkanPrepareBody::class, 'call'];
+    $u->prepare_headers = [DatagovCkanPrepareHeaders::class, 'call'];
+    $u->prepare_method = [DatagovCkanPrepareMethod::class, 'call'];
+    $u->prepare_params = [DatagovCkanPrepareParams::class, 'call'];
+    $u->prepare_path = [DatagovCkanPreparePath::class, 'call'];
+    $u->prepare_query = [DatagovCkanPrepareQuery::class, 'call'];
+    $u->result_basic = [DatagovCkanResultBasic::class, 'call'];
+    $u->result_body = [DatagovCkanResultBody::class, 'call'];
+    $u->result_headers = [DatagovCkanResultHeaders::class, 'call'];
+    $u->transform_request = [DatagovCkanTransformRequest::class, 'call'];
+    $u->transform_response = [DatagovCkanTransformResponse::class, 'call'];
+});

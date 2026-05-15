@@ -1,0 +1,443 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Data.gov CKAN API",
+    "description": "Provides metadata about datasets in the data.gov catalog powered by CKAN, including URLs and descriptions, but not the actual data within each dataset.",
+    "version": "3.0.0",
+    "contact": {
+      "name": "Data.gov",
+      "url": "https://data.gov/developers/apis/"
+    },
+    "license": {
+      "name": "Public Domain",
+      "url": "https://data.gov"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://catalog.data.gov/api/3",
+      "description": "Data.gov CKAN API Server"
+    }
+  ],
+  "paths": {
+    "/action/package_search": {
+      "get": {
+        "summary": "Search for datasets",
+        "description": "Search for datasets (packages) matching the specified query. Returns metadata about datasets including URLs and descriptions.",
+        "operationId": "packageSearch",
+        "tags": [
+          "Datasets"
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Solr search query. Defaults to \"*:*\" (all datasets)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "*:*"
+            }
+          },
+          {
+            "name": "fq",
+            "in": "query",
+            "description": "Filter query for additional filtering",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rows",
+            "in": "query",
+            "description": "Number of matching datasets to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Offset for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sorting of results. Format: field asc|desc",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "facet.field",
+            "in": "query",
+            "description": "Fields to facet on",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "explode": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with dataset search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "help": {
+                      "type": "string",
+                      "description": "API help information"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Whether the request was successful"
+                    },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "description": "Total number of matching datasets"
+                        },
+                        "facets": {
+                          "type": "object",
+                          "description": "Facet results"
+                        },
+                        "results": {
+                          "type": "array",
+                          "description": "Array of dataset metadata",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "description": "Dataset identifier"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "Dataset name"
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "Dataset title"
+                              },
+                              "notes": {
+                                "type": "string",
+                                "description": "Dataset description"
+                              },
+                              "url": {
+                                "type": "string",
+                                "description": "Dataset URL"
+                              },
+                              "metadata_created": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Metadata creation timestamp"
+                              },
+                              "metadata_modified": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Metadata modification timestamp"
+                              },
+                              "organization": {
+                                "type": "object",
+                                "description": "Organization information"
+                              },
+                              "resources": {
+                                "type": "array",
+                                "description": "Dataset resources",
+                                "items": {
+                                  "type": "object"
+                                }
+                              },
+                              "tags": {
+                                "type": "array",
+                                "description": "Dataset tags",
+                                "items": {
+                                  "type": "object"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "sort": {
+                          "type": "string",
+                          "description": "Sort order used"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/action/package_show": {
+      "get": {
+        "summary": "Get dataset details",
+        "description": "Retrieve detailed metadata for a specific dataset by its ID or name.",
+        "operationId": "packageShow",
+        "tags": [
+          "Datasets"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The ID or name of the dataset",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with dataset details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "help": {
+                      "type": "string",
+                      "description": "API help information"
+                    },
+                    "success": {
+                      "type": "boolean",
+                      "description": "Whether the request was successful"
+                    },
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Dataset identifier"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Dataset name"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Dataset title"
+                        },
+                        "notes": {
+                          "type": "string",
+                          "description": "Dataset description"
+                        },
+                        "url": {
+                          "type": "string",
+                          "description": "Dataset URL"
+                        },
+                        "metadata_created": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Metadata creation timestamp"
+                        },
+                        "metadata_modified": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Metadata modification timestamp"
+                        },
+                        "author": {
+                          "type": "string",
+                          "description": "Dataset author"
+                        },
+                        "author_email": {
+                          "type": "string",
+                          "description": "Author email"
+                        },
+                        "maintainer": {
+                          "type": "string",
+                          "description": "Dataset maintainer"
+                        },
+                        "maintainer_email": {
+                          "type": "string",
+                          "description": "Maintainer email"
+                        },
+                        "license_id": {
+                          "type": "string",
+                          "description": "License identifier"
+                        },
+                        "license_title": {
+                          "type": "string",
+                          "description": "License title"
+                        },
+                        "organization": {
+                          "type": "object",
+                          "description": "Organization information"
+                        },
+                        "resources": {
+                          "type": "array",
+                          "description": "Dataset resources with URLs",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "url": {
+                                "type": "string"
+                              },
+                              "format": {
+                                "type": "string"
+                              },
+                              "created": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          }
+                        },
+                        "tags": {
+                          "type": "array",
+                          "description": "Dataset tags",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "groups": {
+                          "type": "array",
+                          "description": "Groups this dataset belongs to",
+                          "items": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid or missing ID parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Dataset not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "help": {
+            "type": "string",
+            "description": "API help information"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Whether the request was successful",
+            "example": false
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "Error message"
+              },
+              "__type": {
+                "type": "string",
+                "description": "Error type"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Datasets",
+      "description": "Operations for searching and retrieving dataset metadata"
+    }
+  ],
+  "externalDocs": {
+    "description": "Data.gov Developer APIs Documentation",
+    "url": "https://data.gov/developers/apis/"
+  }
+}
