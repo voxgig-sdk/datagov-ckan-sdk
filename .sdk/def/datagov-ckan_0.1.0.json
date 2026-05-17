@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "http://catalog.data.gov/api/3",
+      "url": "https://catalog.data.gov/api/3",
       "description": "Data.gov CKAN API Server"
     }
   ],

@@ -13,7 +13,7 @@ func MakeConfig() map[string]any {
 			},
 		},
 		"options": map[string]any{
-			"base": "http://catalog.data.gov/api/3",
+			"base": "https://catalog.data.gov/api/3",
 			"auth": map[string]any{
 				"prefix": "Bearer",
 			},

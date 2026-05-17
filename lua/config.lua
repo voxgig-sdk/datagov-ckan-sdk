@@ -13,7 +13,7 @@ local function make_config()
       },
     },
     options = {
-      base = "http://catalog.data.gov/api/3",
+      base = "https://catalog.data.gov/api/3",
       auth = {
         prefix = "Bearer",
       },

@@ -16,7 +16,7 @@ main: {
       servers: [
         {
           description: "Data.gov CKAN API Server"
-          url: "http://catalog.data.gov/api/3"
+          url: "https://catalog.data.gov/api/3"
         }
       ]
       title: "Data.gov CKAN API"
