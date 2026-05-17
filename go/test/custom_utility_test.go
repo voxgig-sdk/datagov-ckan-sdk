@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/datagov-ckan-sdk"
+	sdk "github.com/voxgig-sdk/datagov-ckan-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

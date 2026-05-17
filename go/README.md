@@ -5,14 +5,14 @@ The Golang SDK for the DatagovCkan API. Provides an entity-oriented interface us
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/datagov-ckan-sdk
+go get github.com/voxgig-sdk/datagov-ckan-sdk/go
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/datagov-ckan-sdk=../path/to/github.com/voxgig-sdk/datagov-ckan-sdk
+go mod edit -replace github.com/voxgig-sdk/datagov-ckan-sdk/go=../path/to/github.com/voxgig-sdk/datagov-ckan-sdk/go
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "github.com/voxgig-sdk/datagov-ckan-sdk"
-    "github.com/voxgig-sdk/datagov-ckan-sdk/core"
+    sdk "github.com/voxgig-sdk/datagov-ckan-sdk/go"
+    "github.com/voxgig-sdk/datagov-ckan-sdk/go/core"
 )
 
 func main() {
@@ -312,7 +312,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-github.com/voxgig-sdk/datagov-ckan-sdk/
+github.com/voxgig-sdk/datagov-ckan-sdk/go/
 ├── datagov-ckan.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -321,7 +321,7 @@ github.com/voxgig-sdk/datagov-ckan-sdk/
 └── test/               # Test suites
 ```
 
-The root package (`github.com/voxgig-sdk/datagov-ckan-sdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/datagov-ckan-sdk/go`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

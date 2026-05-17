@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/datagov-ckan-sdk"
-	"github.com/voxgig-sdk/datagov-ckan-sdk/core"
+	sdk "github.com/voxgig-sdk/datagov-ckan-sdk/go"
+	"github.com/voxgig-sdk/datagov-ckan-sdk/go/core"
 )
 
 func TestDatasetDirect(t *testing.T) {

@@ -1,10 +1,10 @@
 package voxgigdatagovckansdk
 
 import (
-	"github.com/voxgig-sdk/datagov-ckan-sdk/core"
-	"github.com/voxgig-sdk/datagov-ckan-sdk/entity"
-	"github.com/voxgig-sdk/datagov-ckan-sdk/feature"
-	_ "github.com/voxgig-sdk/datagov-ckan-sdk/utility"
+	"github.com/voxgig-sdk/datagov-ckan-sdk/go/core"
+	"github.com/voxgig-sdk/datagov-ckan-sdk/go/entity"
+	"github.com/voxgig-sdk/datagov-ckan-sdk/go/feature"
+	_ "github.com/voxgig-sdk/datagov-ckan-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

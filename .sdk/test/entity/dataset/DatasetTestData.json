@@ -4,17 +4,20 @@
       "DATASET00": {
         "help": "s1e",
         "result": {},
-        "success": true
+        "success": true,
+        "id": "DATASET00"
       },
       "DATASET01": {
         "help": "s3c",
         "result": {},
-        "success": true
+        "success": true,
+        "id": "DATASET01"
       },
       "DATASET02": {
         "help": "s5a",
         "result": {},
-        "success": true
+        "success": true,
+        "id": "DATASET02"
       }
     }
   },
