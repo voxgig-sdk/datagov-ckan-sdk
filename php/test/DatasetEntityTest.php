@@ -85,7 +85,6 @@ function dataset_basic_setup($extra)
         "DATAGOVCKAN_TEST_DATASET_ENTID" => $idmap,
         "DATAGOVCKAN_TEST_LIVE" => "FALSE",
         "DATAGOVCKAN_TEST_EXPLAIN" => "FALSE",
-        "DATAGOVCKAN_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function dataset_basic_setup($extra)
     if ($env["DATAGOVCKAN_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAGOVCKAN_APIKEY"],
             ],
             $extra ?? [],
         ]);

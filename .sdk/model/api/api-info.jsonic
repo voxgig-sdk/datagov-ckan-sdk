@@ -21,8 +21,30 @@ main: {
       ]
       title: "Data.gov CKAN API"
       version: "3.0.0"
+      tagline: "Search and retrieve metadata about U.S. government datasets cataloged on data.gov via its CKAN API"
+      homepage: "https://catalog.data.gov/"
+      docs_url: "https://docs.ckan.org/en/latest/api/index.html"
+      license_short: "U.S. government works on data.gov are generally public domain; individual dataset licences vary."
+      license_md: `- The data.gov catalog is operated by the U.S. General Services Administration; federal works are typically in the public domain in the United States.
+- Individual datasets are published by different agencies and may carry their own licences or use restrictions — check each dataset record before reuse.
+- This API exposes only catalogue metadata (titles, descriptions, URLs, tags, organisations); the underlying data files live on the publishing agencies' servers and follow their own terms.
+- Attribution to the originating agency is recommended even when not strictly required.`
+      about_md: `[Data.gov](https://data.gov/) is the United States government's open data catalog, run by the [General Services Administration](https://www.gsa.gov/). Its public catalog at [catalog.data.gov](https://catalog.data.gov/) is powered by [CKAN](https://ckan.org/), an open-source data management platform, and exposes a standard CKAN Action API at \`/api/3/action/...\`.
+
+This SDK targets the read-side of that API: searching and retrieving the catalogue's metadata records. You get information *about* datasets — titles, descriptions, tags, organisations, and links to the actual files — rather than the dataset contents themselves, which are hosted by the various publishing agencies.
+
+What you can do via the API:
+
+- Search datasets with Solr-style queries via \`package_search\`
+- Look up a single dataset record via \`package_show\`
+- List or browse groups, organisations, and tags
+- Follow \`resource\` URLs from a dataset record to download the underlying files from their host
+
+Operational notes: the API is an RPC-style JSON interface (\`/api/3/action/<function>\`), responses wrap results in \`{success, result, help}\`, and read endpoints are publicly accessible without authentication. CORS is disabled on the public catalog endpoints, so browser-side calls typically need a proxy. Rate limits are not publicly documented; be polite with request volume.`
+      entity_desc: {
+        dataset: "A catalogue record describing a dataset published on data.gov — title, description, tags, organisation, and links to the underlying resource files; searched via `/api/3/action/package_search` and fetched individually via `/api/3/action/package_show`."
+      }
+      auth: false
     }
   }
-}
-
 }
