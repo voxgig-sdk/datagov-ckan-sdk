@@ -91,6 +91,7 @@ def _dataset_basic_setup(extra):
         "DATAGOVCKAN_TEST_DATASET_ENTID": idmap,
         "DATAGOVCKAN_TEST_LIVE": "FALSE",
         "DATAGOVCKAN_TEST_EXPLAIN": "FALSE",
+        "DATAGOVCKAN_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -101,6 +102,7 @@ def _dataset_basic_setup(extra):
     if env.get("DATAGOVCKAN_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("DATAGOVCKAN_APIKEY"),
             },
             extra or {},
         ])

@@ -1,6 +1,11 @@
 # DatagovCkan TypeScript SDK
 
-The TypeScript SDK for the DatagovCkan API. Provides a type-safe, entity-oriented interface with full async/await support.
+
+
+The TypeScript SDK for the DatagovCkan API — a type-safe, entity-oriented client with full async/await support.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -17,7 +22,9 @@ loading a specific record.
 ```ts
 import { DatagovCkanSDK } from 'datagov-ckan'
 
-const client = new DatagovCkanSDK({})
+const client = new DatagovCkanSDK({
+  apikey: process.env.DATAGOV-CKAN_APIKEY,
+})
 ```
 
 ### 3. Load a dataset
@@ -80,7 +87,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new DatagovCkanSDK()
+const client = new DatagovCkanSDK({ apikey: '...' })
 const testClient = client.tester()
 ```
 
@@ -116,6 +123,7 @@ const logger = {
 }
 
 const client = new DatagovCkanSDK({
+  apikey: '...',
   extend: [logger],
 })
 ```
@@ -126,6 +134,7 @@ Create a `.env.local` file at the project root:
 
 ```
 DATAGOV-CKAN_TEST_LIVE=TRUE
+DATAGOV-CKAN_APIKEY=<your-key>
 ```
 
 Then run:
@@ -143,6 +152,7 @@ cd ts && npm test
 
 ```ts
 new DatagovCkanSDK(options?: {
+  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -153,6 +163,7 @@ new DatagovCkanSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

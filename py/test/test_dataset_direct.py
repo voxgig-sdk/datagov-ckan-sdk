@@ -59,12 +59,14 @@ def _dataset_direct_setup(mockres):
     env = runner.env_override({
         "DATAGOVCKAN_TEST_DATASET_ENTID": {},
         "DATAGOVCKAN_TEST_LIVE": "FALSE",
+        "DATAGOVCKAN_APIKEY": "NONE",
     })
 
     live = env.get("DATAGOVCKAN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("DATAGOVCKAN_APIKEY"),
         }
         client = DatagovCkanSDK(merged_opts)
         return {

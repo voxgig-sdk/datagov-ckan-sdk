@@ -1,6 +1,11 @@
 # DatagovCkan Ruby SDK
 
-The Ruby SDK for the DatagovCkan API. Provides an entity-oriented interface using idiomatic Ruby conventions.
+
+
+The Ruby SDK for the DatagovCkan API — an entity-oriented client using idiomatic Ruby conventions.
+
+> Other languages, the CLI, and MCP server live alongside this one — see
+> the [top-level README](../README.md).
 
 
 ## Install
@@ -31,13 +36,15 @@ loading a specific record.
 ```ruby
 require_relative "DatagovCkan_sdk"
 
-client = DatagovCkanSDK.new({})
+client = DatagovCkanSDK.new({
+  "apikey" => ENV["DATAGOV-CKAN_APIKEY"],
+})
 ```
 
 ### 3. Load a dataset
 
 ```ruby
-result, err = client.Dataset(nil).load({ "id" => "example_id" }, nil)
+result, err = client.Dataset().load({ "id" => "example_id" })
 raise err if err
 puts result
 ```
@@ -83,11 +90,9 @@ puts fetchdef["headers"]
 Create a mock client for unit testing — no server required:
 
 ```ruby
-client = DatagovCkanSDK.test(nil, nil)
+client = DatagovCkanSDK.test
 
-result, err = client.DatagovCkan(nil).load(
-  { "id" => "test01" }, nil
-)
+result, err = client.DatagovCkan().load({ "id" => "test01" })
 # result contains mock response data
 ```
 
@@ -119,6 +124,7 @@ Create a `.env.local` file at the project root:
 
 ```
 DATAGOV-CKAN_TEST_LIVE=TRUE
+DATAGOV-CKAN_APIKEY=<your-key>
 ```
 
 Then run:
@@ -141,6 +147,7 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
+| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

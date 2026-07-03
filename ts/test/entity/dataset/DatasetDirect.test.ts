@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'DATAGOVCKAN_TEST_DATASET_ENTID': {},
     'DATAGOVCKAN_TEST_LIVE': 'FALSE',
+    'DATAGOVCKAN_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.DATAGOVCKAN_TEST_LIVE
 
   if (live) {
     const client = new DatagovCkanSDK({
+      apikey: env.DATAGOVCKAN_APIKEY,
     })
 
     let idmap: any = env['DATAGOVCKAN_TEST_DATASET_ENTID']

@@ -91,6 +91,7 @@ function dataset_basic_setup(extra)
     ["DATAGOVCKAN_TEST_DATASET_ENTID"] = idmap,
     ["DATAGOVCKAN_TEST_LIVE"] = "FALSE",
     ["DATAGOVCKAN_TEST_EXPLAIN"] = "FALSE",
+    ["DATAGOVCKAN_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function dataset_basic_setup(extra)
   if env["DATAGOVCKAN_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["DATAGOVCKAN_APIKEY"],
       },
       extra or {},
     })

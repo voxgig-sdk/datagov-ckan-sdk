@@ -99,12 +99,14 @@ func datasetDirectSetup(mockres any) *datasetDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DATAGOVCKAN_TEST_DATASET_ENTID": map[string]any{},
 		"DATAGOVCKAN_TEST_LIVE":    "FALSE",
+		"DATAGOVCKAN_APIKEY":       "NONE",
 	})
 
 	live := env["DATAGOVCKAN_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DATAGOVCKAN_APIKEY"],
 		}
 		client := sdk.NewDatagovCkanSDK(mergedOpts)
 

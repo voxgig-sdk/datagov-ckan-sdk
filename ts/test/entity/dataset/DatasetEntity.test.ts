@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'DATAGOV_CKAN_TEST_DATASET_ENTID': idmap,
     'DATAGOV_CKAN_TEST_LIVE': 'FALSE',
     'DATAGOV_CKAN_TEST_EXPLAIN': 'FALSE',
+    'DATAGOV_CKAN_APIKEY': 'NONE',
   })
 
   idmap = env['DATAGOV_CKAN_TEST_DATASET_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new DatagovCkanSDK(merge([
       {
+        apikey: env.DATAGOV_CKAN_APIKEY,
       },
       extra
     ]))

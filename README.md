@@ -1,23 +1,8 @@
 # DatagovCkan SDK
 
-Search and retrieve metadata about U.S. government datasets cataloged on data.gov via its CKAN API
+Data.gov CKAN API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Data.gov CKAN API
-
-[Data.gov](https://data.gov/) is the United States government's open data catalog, run by the [General Services Administration](https://www.gsa.gov/). Its public catalog at [catalog.data.gov](https://catalog.data.gov/) is powered by [CKAN](https://ckan.org/), an open-source data management platform, and exposes a standard CKAN Action API at `/api/3/action/...`.
-
-This SDK targets the read-side of that API: searching and retrieving the catalogue's metadata records. You get information *about* datasets — titles, descriptions, tags, organisations, and links to the actual files — rather than the dataset contents themselves, which are hosted by the various publishing agencies.
-
-What you can do via the API:
-
-- Search datasets with Solr-style queries via `package_search`
-- Look up a single dataset record via `package_show`
-- List or browse groups, organisations, and tags
-- Follow `resource` URLs from a dataset record to download the underlying files from their host
-
-Operational notes: the API is an RPC-style JSON interface (`/api/3/action/<function>`), responses wrap results in `{success, result, help}`, and read endpoints are publicly accessible without authentication. CORS is disabled on the public catalog endpoints, so browser-side calls typically need a proxy. Rate limits are not publicly documented; be polite with request volume.
 
 ## Try it
 
@@ -51,27 +36,31 @@ gem install datagov-ckan-sdk
 luarocks install datagov-ckan-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { DatagovCkanSDK } from 'datagov-ckan'
 
-const client = new DatagovCkanSDK({})
+const client = new DatagovCkanSDK({
+  apikey: process.env.DATAGOV-CKAN_APIKEY,
+})
 
+// Load dataset data
+const dataset = await client.Dataset().load({})
+console.log(dataset.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Dataset** | A catalogue record describing a dataset published on data.gov — title, description, tags, organisation, and links to the underlying resource files; searched via `/api/3/action/package_search` and fetched individually via `/api/3/action/package_show`. | `/action/package_search` |
+| **Dataset** |  | `/action/package_search` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from datagovckan_sdk import DatagovCkanSDK
 
-client = DatagovCkanSDK({})
+client = DatagovCkanSDK({
+    "apikey": os.environ.get("DATAGOV-CKAN_APIKEY"),
+})
 
 
 # Load a specific dataset
-dataset, err = client.Dataset(None).load(
-    {"id": "example_id"}, None
-)
+dataset, err = client.Dataset().load({"id": "example_id"})
+print(dataset)
 ```
 
 ### PHP
@@ -128,13 +119,14 @@ dataset, err = client.Dataset(None).load(
 <?php
 require_once 'datagovckan_sdk.php';
 
-$client = new DatagovCkanSDK([]);
+$client = new DatagovCkanSDK([
+    "apikey" => getenv("DATAGOV-CKAN_APIKEY"),
+]);
 
 
 // Load a specific dataset
-[$dataset, $err] = $client->Dataset(null)->load(
-    ["id" => "example_id"], null
-);
+[$dataset, $err] = $client->Dataset()->load(["id" => "example_id"]);
+print_r($dataset);
 ```
 
 ### Golang
@@ -142,8 +134,13 @@ $client = new DatagovCkanSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/datagov-ckan-sdk/go"
 
-client := sdk.NewDatagovCkanSDK(map[string]any{})
+client := sdk.NewDatagovCkanSDK(map[string]any{
+    "apikey": os.Getenv("DATAGOV-CKAN_APIKEY"),
+})
 
+// Load dataset data
+dataset, err := client.Dataset(nil).Load(map[string]any{}, nil)
+fmt.Println(dataset)
 ```
 
 ### Ruby
@@ -151,13 +148,14 @@ client := sdk.NewDatagovCkanSDK(map[string]any{})
 ```ruby
 require_relative "DatagovCkan_sdk"
 
-client = DatagovCkanSDK.new({})
+client = DatagovCkanSDK.new({
+  "apikey" => ENV["DATAGOV-CKAN_APIKEY"],
+})
 
 
 # Load a specific dataset
-dataset, err = client.Dataset(nil).load(
-  { "id" => "example_id" }, nil
-)
+dataset, err = client.Dataset().load({ "id" => "example_id" })
+puts dataset
 ```
 
 ### Lua
@@ -165,13 +163,14 @@ dataset, err = client.Dataset(nil).load(
 ```lua
 local sdk = require("datagov-ckan_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("DATAGOV-CKAN_APIKEY"),
+})
 
 
 -- Load a specific dataset
-local dataset, err = client:Dataset(nil):load(
-  { id = "example_id" }, nil
-)
+local dataset, err = client:Dataset():load({ id = "example_id" })
+print(dataset)
 ```
 
 ## Unit testing in offline mode
@@ -190,25 +189,21 @@ const result = await client.Dataset().load({ id: 'test01' })
 ### Python
 
 ```python
-client = DatagovCkanSDK.test(None, None)
-result, err = client.Dataset(None).load(
-    {"id": "test01"}, None
-)
+client = DatagovCkanSDK.test()
+result, err = client.Dataset().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = DatagovCkanSDK::test(null, null);
-[$result, $err] = $client->Dataset(null)->load(
-    ["id" => "test01"], null
-);
+$client = DatagovCkanSDK::test();
+[$result, $err] = $client->Dataset()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Dataset(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -217,19 +212,15 @@ result, err := client.Dataset(nil).Load(
 ### Ruby
 
 ```ruby
-client = DatagovCkanSDK.test(nil, nil)
-result, err = client.Dataset(nil).load(
-  { "id" => "test01" }, nil
-)
+client = DatagovCkanSDK.test
+result, err = client.Dataset().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Dataset(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Dataset():load({ id = "test01" })
 ```
 
 ## How it works
@@ -333,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Data.gov CKAN API
-
-- Upstream: [https://catalog.data.gov/](https://catalog.data.gov/)
-- API docs: [https://docs.ckan.org/en/latest/api/index.html](https://docs.ckan.org/en/latest/api/index.html)
-
-- The data.gov catalog is operated by the U.S. General Services Administration; federal works are typically in the public domain in the United States.
-- Individual datasets are published by different agencies and may carry their own licences or use restrictions — check each dataset record before reuse.
-- This API exposes only catalogue metadata (titles, descriptions, URLs, tags, organisations); the underlying data files live on the publishing agencies' servers and follow their own terms.
-- Attribution to the originating agency is recommended even when not strictly required.
 
 ---
 
