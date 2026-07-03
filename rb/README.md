@@ -10,13 +10,13 @@ The Ruby SDK for the DatagovCkan API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install datagov-ckan-sdk
+gem install voxgig-sdk-datagov-ckan
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "datagov-ckan-sdk"
+gem "voxgig-sdk-datagov-ckan"
 ```
 
 Then run:

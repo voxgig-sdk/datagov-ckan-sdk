@@ -10,7 +10,7 @@ The Python SDK for the DatagovCkan API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install datagov-ckan-sdk
+pip install voxgig-sdk-datagov-ckan
 ```
 
 Or install from source:

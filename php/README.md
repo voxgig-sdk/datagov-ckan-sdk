@@ -10,7 +10,7 @@ The PHP SDK for the DatagovCkan API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/datagov-ckan-sdk
+composer require voxgig-sdk/datagov-ckan
 ```
 
 

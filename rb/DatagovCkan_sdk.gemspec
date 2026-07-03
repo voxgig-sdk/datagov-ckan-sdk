@@ -2,9 +2,17 @@ Gem::Specification.new do |spec|
   spec.name          = "voxgig-sdk-datagov-ckan"
   spec.version       = "0.0.1"
   spec.authors       = ["Voxgig"]
-  spec.summary       = "DatagovCkan SDK for Ruby"
+  spec.summary       = "Unofficial generated Ruby SDK for the Data.gov CKAN public API. Not affiliated with or endorsed by the upstream API provider."
+  spec.description   = "Unofficial generated Ruby SDK for the Data.gov CKAN public API. Not affiliated with or endorsed by the upstream API provider."
   spec.license       = "MIT"
   spec.homepage      = "https://github.com/voxgig-sdk/datagov-ckan-sdk"
+  spec.metadata      = {
+    "homepage_uri"          => "https://github.com/voxgig-sdk/datagov-ckan-sdk",
+    "source_code_uri"       => "https://github.com/voxgig-sdk/datagov-ckan-sdk",
+    "bug_tracker_uri"       => "https://github.com/voxgig-sdk/datagov-ckan-sdk/issues",
+    "changelog_uri"         => "https://github.com/voxgig-sdk/datagov-ckan-sdk/blob/main/CHANGELOG.md",
+    "rubygems_mfa_required" => "true"
+  }
 
   spec.files         = Dir["lib/**/*.rb", "*.rb"]
   spec.require_paths = ["."]

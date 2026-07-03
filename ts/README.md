@@ -10,7 +10,7 @@ The TypeScript SDK for the DatagovCkan API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install datagov-ckan
+npm install @voxgig-sdk/datagov-ckan
 ```
 ## Tutorial: your first API call
 
