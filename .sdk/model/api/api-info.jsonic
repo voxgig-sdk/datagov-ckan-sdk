@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Data.gov"
         url: "https://data.gov/developers/apis/"

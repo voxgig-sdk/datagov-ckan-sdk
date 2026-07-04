@@ -42,8 +42,7 @@ class DatasetEntityTest < Minitest::Test
     # LOAD
     dataset_ref01_ent = client.Dataset(nil)
     dataset_ref01_match_dt0 = {}
-    dataset_ref01_data_dt0_loaded, err = dataset_ref01_ent.load(dataset_ref01_match_dt0, nil)
-    assert_nil err
+    dataset_ref01_data_dt0_loaded = dataset_ref01_ent.load(dataset_ref01_match_dt0, nil)
     assert !dataset_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def dataset_basic_setup(extra)
     "DATAGOVCKAN_TEST_DATASET_ENTID" => idmap,
     "DATAGOVCKAN_TEST_LIVE" => "FALSE",
     "DATAGOVCKAN_TEST_EXPLAIN" => "FALSE",
-    "DATAGOVCKAN_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def dataset_basic_setup(extra)
   if env["DATAGOVCKAN_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["DATAGOVCKAN_APIKEY"],
       },
       extra || {},
     ])

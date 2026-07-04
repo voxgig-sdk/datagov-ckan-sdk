@@ -49,8 +49,7 @@ class DatasetEntityTest extends TestCase
         // LOAD
         $dataset_ref01_ent = $client->Dataset(null);
         $dataset_ref01_match_dt0 = [];
-        [$dataset_ref01_data_dt0_loaded, $err] = $dataset_ref01_ent->load($dataset_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $dataset_ref01_data_dt0_loaded = $dataset_ref01_ent->load($dataset_ref01_match_dt0, null);
         $this->assertNotNull($dataset_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function dataset_basic_setup($extra)
         "DATAGOVCKAN_TEST_DATASET_ENTID" => $idmap,
         "DATAGOVCKAN_TEST_LIVE" => "FALSE",
         "DATAGOVCKAN_TEST_EXPLAIN" => "FALSE",
-        "DATAGOVCKAN_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function dataset_basic_setup($extra)
     if ($env["DATAGOVCKAN_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DATAGOVCKAN_APIKEY"],
             ],
             $extra ?? [],
         ]);
