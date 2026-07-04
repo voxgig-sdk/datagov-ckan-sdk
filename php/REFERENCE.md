@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## DatasetEntity
 
 ```php
-$dataset = $client->dataset();
+$dataset = $client->Dataset();
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ $dataset = $client->dataset();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->dataset()->load(["id" => "dataset_id"]);
+$result = $client->Dataset()->load(["id" => "dataset_id"]);
 ```
 
 ### Common Methods

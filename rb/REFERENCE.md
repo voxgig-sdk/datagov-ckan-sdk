@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## DatasetEntity
 
 ```ruby
-dataset = client.dataset
+dataset = client.Dataset
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ dataset = client.dataset
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.dataset.load({ "id" => "dataset_id" })
+result = client.Dataset.load({ "id" => "dataset_id" })
 ```
 
 ### Common Methods

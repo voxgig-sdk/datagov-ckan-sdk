@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:dataset():list() / client:dataset():load({ id = ... })
-function DatagovCkanSDK:dataset(data)
+-- Idiomatic facade: client:Dataset():list() / client:Dataset():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DatagovCkanSDK:Dataset(data)
   local EntityMod = require("entity.dataset_entity")
   if data == nil then
     if self._dataset == nil then
@@ -253,12 +254,6 @@ function DatagovCkanSDK:dataset(data)
     end
     return self._dataset
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:dataset() instead.
-function DatagovCkanSDK:Dataset(data)
-  local EntityMod = require("entity.dataset_entity")
   return EntityMod.new(self, data)
 end
 

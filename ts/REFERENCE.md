@@ -109,7 +109,7 @@ Alias for `DatagovCkanSDK.test()`.
 ## DatasetEntity
 
 ```ts
-const dataset = client.dataset
+const dataset = client.Dataset()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const dataset = client.dataset
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.dataset.load({ id: 'dataset_id' })
+const result = await client.Dataset().load({ id: 'dataset_id' })
 ```
 
 ### Common Methods

@@ -33,10 +33,12 @@ client = DatagovCkanSDK()
 
 ### 3. Load a dataset
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.dataset.load({"id": "example_id"})
-    print(result)
+    dataset = client.Dataset().load({"id": "example_id"})
+    print(dataset)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DatagovCkanSDK.test()
 
-result = client.dataset.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+dataset = client.Dataset().load({"id": "test01"})
+# dataset contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/action/package_search`
 
 ### Dataset
 
-Create an instance: `const dataset = client.dataset`
+Create an instance: `dataset = client.Dataset()`
 
 #### Operations
 
@@ -238,8 +241,8 @@ Create an instance: `const dataset = client.dataset`
 
 #### Example: Load
 
-```ts
-const dataset = await client.dataset.load({ id: 'dataset_id' })
+```python
+dataset = client.Dataset().load({"id": "dataset_id"})
 ```
 
 
@@ -313,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-dataset = client.dataset
+dataset = client.Dataset()
 dataset.load({"id": "example_id"})
 
 # dataset.data_get() now returns the loaded dataset data
