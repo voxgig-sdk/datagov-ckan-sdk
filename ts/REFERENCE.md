@@ -116,9 +116,9 @@ const dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `help` | `string` | No |  |
+| `result` | `Record<string, any>` | No |  |
+| `success` | `boolean` | No |  |
 
 ### Operations
 
@@ -127,7 +127,7 @@ const dataset = client.Dataset()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Dataset().load({ id: 'dataset_id' })
+const result = await client.Dataset().load()
 ```
 
 ### Common Methods

@@ -97,9 +97,9 @@ dataset := client.Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `help` | `string` | No |  |
+| `result` | `map[string]any` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ dataset := client.Dataset(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Dataset(nil).Load(map[string]any{"id": "dataset_id"}, nil)
+result, err := client.Dataset(nil).Load(nil, nil)
 ```
 
 ### Common Methods

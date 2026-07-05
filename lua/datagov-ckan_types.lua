@@ -12,6 +12,9 @@
 ---@field success? boolean
 
 ---@class DatasetLoadMatch
+---@field help? string
+---@field result? table
+---@field success? boolean
 
 local M = {}
 

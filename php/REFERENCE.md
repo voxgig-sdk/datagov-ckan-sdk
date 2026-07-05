@@ -8,7 +8,7 @@ Complete API reference for the DatagovCkan PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/datagov-ckan_sdk.php';
+require_once __DIR__ . '/datagovckan_sdk.php';
 
 $client = new DatagovCkanSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = DatagovCkanSDK::test();
 
 Create a new `DatasetEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): DatagovCkanUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,9 +92,9 @@ $dataset = $client->Dataset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `help` | `string` | No |  |
+| `result` | `array` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -103,24 +103,24 @@ $dataset = $client->Dataset();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Dataset()->load(["id" => "dataset_id"]);
+$result = $client->Dataset()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `DatasetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

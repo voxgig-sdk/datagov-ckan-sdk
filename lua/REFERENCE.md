@@ -90,9 +90,9 @@ local dataset = client:Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `help` | `string` | No |  |
+| `result` | `table` | No |  |
+| `success` | `boolean` | No |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ local dataset = client:Dataset(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Dataset():load({ id = "dataset_id" })
+local result, err = client:Dataset():load()
 ```
 
 ### Common Methods

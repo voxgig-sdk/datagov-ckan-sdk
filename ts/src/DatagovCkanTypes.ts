@@ -11,5 +11,9 @@ export interface Dataset {
   success?: boolean
 }
 
-export type DatasetLoadMatch = Partial<Dataset>
+export interface DatasetLoadMatch {
+  help?: string
+  result?: Record<string, any>
+  success?: boolean
+}
 

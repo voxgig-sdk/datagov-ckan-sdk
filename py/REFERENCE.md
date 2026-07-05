@@ -8,7 +8,7 @@ Complete API reference for the DatagovCkan Python SDK.
 ### Constructor
 
 ```python
-from datagov-ckan_sdk import DatagovCkanSDK
+from datagovckan_sdk import DatagovCkanSDK
 
 client = DatagovCkanSDK(options)
 ```
@@ -87,9 +87,9 @@ dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `help` | `str` | No |  |
+| `result` | `dict` | No |  |
+| `success` | `bool` | No |  |
 
 ### Operations
 
@@ -98,7 +98,7 @@ dataset = client.Dataset()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Dataset().load({"id": "dataset_id"})
+result = client.Dataset().load()
 ```
 
 ### Common Methods

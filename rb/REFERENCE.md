@@ -8,7 +8,7 @@ Complete API reference for the DatagovCkan Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'datagov-ckan_sdk'
+require_relative 'DatagovCkan_sdk'
 
 client = DatagovCkanSDK.new(options)
 ```
@@ -93,9 +93,9 @@ dataset = client.Dataset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | ``$STRING`` | No |  |
-| `result` | ``$OBJECT`` | No |  |
-| `success` | ``$BOOLEAN`` | No |  |
+| `help` | `String` | No |  |
+| `result` | `Hash` | No |  |
+| `success` | `Boolean` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ dataset = client.Dataset
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Dataset.load({ "id" => "dataset_id" })
+result = client.Dataset.load()
 ```
 
 ### Common Methods

@@ -15,8 +15,7 @@ type Dataset struct {
 	Success *bool `json:"success,omitempty"`
 }
 
-// DatasetLoadMatch mirrors the dataset fields as an all-optional match
-// filter (Go analog of Partial<Dataset>).
+// DatasetLoadMatch is the typed request payload for Dataset.LoadTyped.
 type DatasetLoadMatch struct {
 	Help *string `json:"help,omitempty"`
 	Result *map[string]any `json:"result,omitempty"`

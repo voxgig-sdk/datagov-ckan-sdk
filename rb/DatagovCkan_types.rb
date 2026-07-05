@@ -25,7 +25,7 @@ Dataset = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Dataset#load (any subset of Dataset fields).
+# Request payload for Dataset#load.
 #
 # @!attribute [rw] help
 #   @return [String, nil]

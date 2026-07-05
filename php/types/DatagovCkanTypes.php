@@ -20,7 +20,7 @@ class Dataset
     public ?bool $success = null;
 }
 
-/** Match filter for Dataset#load (any subset of Dataset fields). */
+/** Request payload for Dataset#load. */
 class DatasetLoadMatch
 {
     public ?string $help = null;
