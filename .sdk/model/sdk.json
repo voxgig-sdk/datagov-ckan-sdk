@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -305,14 +302,17 @@
           "name": "Public Domain",
           "url": "https://data.gov"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Data.gov CKAN API Server",
             "url": "https://catalog.data.gov/api/3"
           }
         ],
+        "summary": "Provides metadata about datasets in the data.gov catalog powered by CKAN, including URLs and descriptions, but not the actual data within each dataset.",
         "title": "Data.gov CKAN API",
-        "version": "3.0.0"
+        "version": "3.0.0",
+        "website": "https://data.gov/developers/apis/"
       },
       "option": {},
       "target": {
@@ -365,6 +365,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -415,6 +418,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

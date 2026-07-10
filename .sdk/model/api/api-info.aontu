@@ -20,9 +20,9 @@ main: {
           url: "https://catalog.data.gov/api/3"
         }
       ]
+      summary: "Provides metadata about datasets in the data.gov catalog powered by CKAN, including URLs and descriptions, but not the actual data within each dataset."
       title: "Data.gov CKAN API"
       version: "3.0.0"
+      website: "https://data.gov/developers/apis/"
     }
   }
-}
-
