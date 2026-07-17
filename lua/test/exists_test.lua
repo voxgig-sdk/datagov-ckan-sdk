@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- DatagovCkan SDK exists test
 
 local sdk = require("datagov-ckan_sdk")
 
