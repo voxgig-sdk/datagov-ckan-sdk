@@ -98,9 +98,27 @@ fmt.Println(dataset.GetName()) // "dataset"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | `string` | No |  |
-| `result` | `map[string]any` | No |  |
-| `success` | `bool` | No |  |
+| `author` | `string` | No |  |
+| `author_email` | `string` | No |  |
+| `count` | `int` | No |  |
+| `facets` | `map[string]any` | No |  |
+| `groups` | `[]any` | No |  |
+| `id` | `string` | No |  |
+| `license_id` | `string` | No |  |
+| `license_title` | `string` | No |  |
+| `maintainer` | `string` | No |  |
+| `maintainer_email` | `string` | No |  |
+| `metadata_created` | `string` | No |  |
+| `metadata_modified` | `string` | No |  |
+| `name` | `string` | No |  |
+| `notes` | `string` | No |  |
+| `organization` | `map[string]any` | No |  |
+| `resources` | `[]any` | No |  |
+| `results` | `[]any` | No |  |
+| `sort` | `string` | No |  |
+| `tags` | `[]any` | No |  |
+| `title` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
@@ -109,7 +127,7 @@ fmt.Println(dataset.GetName()) // "dataset"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Dataset(nil).Load(nil, nil)
+result, err := client.Dataset(nil).Load(map[string]any{"id": "dataset_id"}, nil)
 if err != nil {
     panic(err)
 }

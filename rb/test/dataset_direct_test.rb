@@ -59,11 +59,11 @@ def dataset_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "DATAGOVCKAN_TEST_DATASET_ENTID" => {},
-    "DATAGOVCKAN_TEST_LIVE" => "FALSE",
+    "DATAGOV_CKAN_TEST_DATASET_ENTID" => {},
+    "DATAGOV_CKAN_TEST_LIVE" => "FALSE",
   })
 
-  live = env["DATAGOVCKAN_TEST_LIVE"] == "TRUE"
+  live = env["DATAGOV_CKAN_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

@@ -35,8 +35,8 @@ $client = new DatagovCkanSDK();
 
 ```php
 try {
-    // load() returns the bare Dataset record (throws on error).
-    $dataset = $client->Dataset()->load();
+    // load() returns the ENTITY — call data_get() for the Dataset record (throws on error).
+    $dataset = $client->Dataset()->load(["id" => "example_id"]);
     print_r($dataset);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $dataset = $client->Dataset()->load();
+    $dataset = $client->Dataset()->load(["id" => "example_id"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -118,13 +118,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = DatagovCkanSDK::test();
+$client = DatagovCkanSDK::test([
+    "entity" => ["dataset" => ["test01" => ["id" => "test01"]]],
+]);
 
-// Entity ops return the bare mock record (throws on error).
-$dataset = $client->Dataset()->load();
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$dataset = $client->Dataset()->load(["id" => "test01"]);
 print_r($dataset);
 ```
 
@@ -222,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -244,9 +248,27 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `help` |  |
-| `result` |  |
-| `success` |  |
+| `author` |  |
+| `author_email` |  |
+| `count` |  |
+| `facets` |  |
+| `groups` |  |
+| `id` |  |
+| `license_id` |  |
+| `license_title` |  |
+| `maintainer` |  |
+| `maintainer_email` |  |
+| `metadata_created` |  |
+| `metadata_modified` |  |
+| `name` |  |
+| `notes` |  |
+| `organization` |  |
+| `resources` |  |
+| `results` |  |
+| `sort` |  |
+| `tags` |  |
+| `title` |  |
+| `url` |  |
 
 Operations: Load.
 
@@ -271,15 +293,33 @@ Create an instance: `$dataset = $client->Dataset();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `help` | `string` |  |
-| `result` | `array` |  |
-| `success` | `bool` |  |
+| `author` | `string` |  |
+| `author_email` | `string` |  |
+| `count` | `int` |  |
+| `facets` | `array` |  |
+| `groups` | `array` |  |
+| `id` | `string` |  |
+| `license_id` | `string` |  |
+| `license_title` | `string` |  |
+| `maintainer` | `string` |  |
+| `maintainer_email` | `string` |  |
+| `metadata_created` | `string` |  |
+| `metadata_modified` | `string` |  |
+| `name` | `string` |  |
+| `notes` | `string` |  |
+| `organization` | `array` |  |
+| `resources` | `array` |  |
+| `results` | `array` |  |
+| `sort` | `string` |  |
+| `tags` | `array` |  |
+| `title` | `string` |  |
+| `url` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Dataset record (throws on error).
-$dataset = $client->Dataset()->load();
+// load() returns the ENTITY — call data_get() for the Dataset record (throws on error).
+$dataset = $client->Dataset()->load(["id" => "dataset_id"]);
 ```
 
 
@@ -360,7 +400,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $dataset = $client->Dataset();
-$dataset->load();
+$dataset->load(["id" => "example_id"]);
 
 // $dataset->data_get() now returns the dataset data from the last load
 // $dataset->match_get() returns the last match criteria

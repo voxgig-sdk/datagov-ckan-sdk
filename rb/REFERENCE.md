@@ -93,9 +93,27 @@ dataset = client.Dataset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | `String` | No |  |
-| `result` | `Hash` | No |  |
-| `success` | `Boolean` | No |  |
+| `author` | `String` | No |  |
+| `author_email` | `String` | No |  |
+| `count` | `Integer` | No |  |
+| `facets` | `Hash` | No |  |
+| `groups` | `Array` | No |  |
+| `id` | `String` | No |  |
+| `license_id` | `String` | No |  |
+| `license_title` | `String` | No |  |
+| `maintainer` | `String` | No |  |
+| `maintainer_email` | `String` | No |  |
+| `metadata_created` | `String` | No |  |
+| `metadata_modified` | `String` | No |  |
+| `name` | `String` | No |  |
+| `notes` | `String` | No |  |
+| `organization` | `Hash` | No |  |
+| `resources` | `Array` | No |  |
+| `results` | `Array` | No |  |
+| `sort` | `String` | No |  |
+| `tags` | `Array` | No |  |
+| `title` | `String` | No |  |
+| `url` | `String` | No |  |
 
 ### Operations
 
@@ -104,7 +122,7 @@ dataset = client.Dataset
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Dataset.load()
+result = client.Dataset.load({ "id" => "dataset_id" })
 ```
 
 ### Common Methods

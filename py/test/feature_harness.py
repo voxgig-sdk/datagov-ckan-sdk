@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import DatagovCkanControl
-from core.error import DatagovCkanError
-from core.result import DatagovCkanResult
-from core.spec import DatagovCkanSpec
+from datagovckan_sdk.config import make_config
+from datagovckan_sdk.features import _make_feature
+from datagovckan_sdk.core.control import DatagovCkanControl
+from datagovckan_sdk.core.error import DatagovCkanError
+from datagovckan_sdk.core.result import DatagovCkanResult
+from datagovckan_sdk.core.spec import DatagovCkanSpec
 
 
 # True when this SDK was generated with the named feature.

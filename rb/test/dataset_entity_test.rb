@@ -26,7 +26,7 @@ class DatasetEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set DATAGOVCKAN_TEST_DATASET_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set DATAGOV_CKAN_TEST_DATASET_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -41,9 +41,13 @@ class DatasetEntityTest < Minitest::Test
 
     # LOAD
     dataset_ref01_ent = client.Dataset(nil)
-    dataset_ref01_match_dt0 = {}
+    dataset_ref01_match_dt0 = {
+      "id" => dataset_ref01_data["id"],
+    }
     dataset_ref01_data_dt0_loaded = dataset_ref01_ent.load(dataset_ref01_match_dt0, nil)
-    assert !dataset_ref01_data_dt0_loaded.nil?
+    dataset_ref01_data_dt0_load_result = Helpers.to_map(dataset_ref01_data_dt0_loaded.respond_to?(:data_get) ? dataset_ref01_data_dt0_loaded.data_get : dataset_ref01_data_dt0_loaded)
+    assert !dataset_ref01_data_dt0_load_result.nil?
+    assert_equal dataset_ref01_data_dt0_load_result["id"], dataset_ref01_data["id"]
 
   end
 end
@@ -74,22 +78,22 @@ def dataset_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["DATAGOVCKAN_TEST_DATASET_ENTID"]
+  entid_env_raw = ENV["DATAGOV_CKAN_TEST_DATASET_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "DATAGOVCKAN_TEST_DATASET_ENTID" => idmap,
-    "DATAGOVCKAN_TEST_LIVE" => "FALSE",
-    "DATAGOVCKAN_TEST_EXPLAIN" => "FALSE",
+    "DATAGOV_CKAN_TEST_DATASET_ENTID" => idmap,
+    "DATAGOV_CKAN_TEST_LIVE" => "FALSE",
+    "DATAGOV_CKAN_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["DATAGOVCKAN_TEST_DATASET_ENTID"])
+    env["DATAGOV_CKAN_TEST_DATASET_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["DATAGOVCKAN_TEST_LIVE"] == "TRUE"
+  if env["DATAGOV_CKAN_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -98,13 +102,13 @@ def dataset_basic_setup(extra)
     client = DatagovCkanSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["DATAGOVCKAN_TEST_LIVE"] == "TRUE"
+  live = env["DATAGOV_CKAN_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["DATAGOVCKAN_TEST_EXPLAIN"] == "TRUE",
+    explain: env["DATAGOV_CKAN_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

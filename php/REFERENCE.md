@@ -92,9 +92,27 @@ $dataset = $client->Dataset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | `string` | No |  |
-| `result` | `array` | No |  |
-| `success` | `bool` | No |  |
+| `author` | `string` | No |  |
+| `author_email` | `string` | No |  |
+| `count` | `int` | No |  |
+| `facets` | `array` | No |  |
+| `groups` | `array` | No |  |
+| `id` | `string` | No |  |
+| `license_id` | `string` | No |  |
+| `license_title` | `string` | No |  |
+| `maintainer` | `string` | No |  |
+| `maintainer_email` | `string` | No |  |
+| `metadata_created` | `string` | No |  |
+| `metadata_modified` | `string` | No |  |
+| `name` | `string` | No |  |
+| `notes` | `string` | No |  |
+| `organization` | `array` | No |  |
+| `resources` | `array` | No |  |
+| `results` | `array` | No |  |
+| `sort` | `string` | No |  |
+| `tags` | `array` | No |  |
+| `title` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
@@ -103,7 +121,7 @@ $dataset = $client->Dataset();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->Dataset()->load();
+$result = $client->Dataset()->load(["id" => "dataset_id"]);
 ```
 
 ### Common Methods

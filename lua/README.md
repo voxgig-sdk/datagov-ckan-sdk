@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a dataset
 
 ```lua
-local dataset, err = client:Dataset():load()
+local dataset, err = client:Dataset():load({ id = "example_id" })
 if err then error(err) end
 print(dataset)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local dataset, err = client:Dataset():load()
+local dataset, err = client:Dataset():load({ id = "example_id" })
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Dataset():load()
+local result, err = client:Dataset():load({ id = "test01" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -212,7 +212,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local dataset, err = client:Dataset():load()
+    local dataset, err = client:Dataset():load({ id = "example_id" })
     if err then error(err) end
     -- dataset is the loaded record
 
@@ -225,9 +225,27 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `help` |  |
-| `result` |  |
-| `success` |  |
+| `author` |  |
+| `author_email` |  |
+| `count` |  |
+| `facets` |  |
+| `groups` |  |
+| `id` |  |
+| `license_id` |  |
+| `license_title` |  |
+| `maintainer` |  |
+| `maintainer_email` |  |
+| `metadata_created` |  |
+| `metadata_modified` |  |
+| `name` |  |
+| `notes` |  |
+| `organization` |  |
+| `resources` |  |
+| `results` |  |
+| `sort` |  |
+| `tags` |  |
+| `title` |  |
+| `url` |  |
 
 Operations: Load.
 
@@ -252,14 +270,32 @@ Create an instance: `local dataset = client:Dataset(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `help` | `string` |  |
-| `result` | `table` |  |
-| `success` | `boolean` |  |
+| `author` | `string` |  |
+| `author_email` | `string` |  |
+| `count` | `number` |  |
+| `facets` | `table` |  |
+| `groups` | `table` |  |
+| `id` | `string` |  |
+| `license_id` | `string` |  |
+| `license_title` | `string` |  |
+| `maintainer` | `string` |  |
+| `maintainer_email` | `string` |  |
+| `metadata_created` | `string` |  |
+| `metadata_modified` | `string` |  |
+| `name` | `string` |  |
+| `notes` | `string` |  |
+| `organization` | `table` |  |
+| `resources` | `table` |  |
+| `results` | `table` |  |
+| `sort` | `string` |  |
+| `tags` | `table` |  |
+| `title` | `string` |  |
+| `url` | `string` |  |
 
 #### Example: Load
 
 ```lua
-local dataset, err = client:Dataset():load()
+local dataset, err = client:Dataset():load({ id = "dataset_id" })
 ```
 
 
@@ -340,7 +376,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local dataset = client:Dataset()
-dataset:load()
+dataset:load({ id = "example_id" })
 
 -- dataset:data_get() now returns the dataset data from the last load
 -- dataset:match_get() returns the last match criteria

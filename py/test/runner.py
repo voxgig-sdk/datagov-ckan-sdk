@@ -4,7 +4,7 @@ from __future__ import annotations
 import os
 import json
 
-from utility.voxgig_struct import voxgig_struct as vs
+from datagovckan_sdk.utility.voxgig_struct import voxgig_struct as vs
 
 
 class DatagovCkanTestRunner:
@@ -38,8 +38,8 @@ class DatagovCkanTestRunner:
 
     @staticmethod
     def env_override(m):
-        live = DatagovCkanTestRunner.getenv("DATAGOVCKAN_TEST_LIVE")
-        override = DatagovCkanTestRunner.getenv("DATAGOVCKAN_TEST_OVERRIDE")
+        live = DatagovCkanTestRunner.getenv("DATAGOV_CKAN_TEST_LIVE")
+        override = DatagovCkanTestRunner.getenv("DATAGOV_CKAN_TEST_OVERRIDE")
 
         if live == "TRUE" or override == "TRUE":
             for key in list(m.keys()):
@@ -56,9 +56,9 @@ class DatagovCkanTestRunner:
                             pass
                     m[key] = envval
 
-        explain = DatagovCkanTestRunner.getenv("DATAGOVCKAN_TEST_EXPLAIN")
+        explain = DatagovCkanTestRunner.getenv("DATAGOV_CKAN_TEST_EXPLAIN")
         if explain is not None and explain != "":
-            m["DATAGOVCKAN_TEST_EXPLAIN"] = explain
+            m["DATAGOV_CKAN_TEST_EXPLAIN"] = explain
 
         return m
 
@@ -111,6 +111,17 @@ class DatagovCkanTestRunner:
         return 500
 
     @staticmethod
+    def entity_data(v):
+        """Extract the data map from an op result.
+
+        Every entity operation resolves to the ENTITY (see AGENTS.md), so a
+        flow test that wants the record takes this hop. A plain dict passes
+        through unchanged.
+        """
+        if hasattr(v, "data_get") and callable(v.data_get):
+            return v.data_get()
+        return v
+
     def entity_list_to_data(lst):
         out = []
         for item in lst:
@@ -132,6 +143,10 @@ def load_env_local():
 
 def env_override(m):
     return DatagovCkanTestRunner.env_override(m)
+
+
+def entity_data(v):
+    return DatagovCkanTestRunner.entity_data(v)
 
 
 def entity_list_to_data(lst):

@@ -39,7 +39,7 @@ const client = new DatagovCkanSDK()
 
 ```ts
 try {
-  const dataset = await client.Dataset().load()
+  const dataset = await client.Dataset().load({ id: 'example_id' })
   console.log(dataset)
 } catch (err) {
   console.error('load failed:', err)
@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const dataset = await client.Dataset().load()
+  const dataset = await client.Dataset().load({ id: "example_id" })
   console.log(dataset)
 } catch (err) {
   console.error('load failed:', err)
@@ -120,8 +120,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = DatagovCkanSDK.test()
 
-const dataset = await client.Dataset().load()
-// dataset is a bare entity populated with mock response data
+const dataset = await client.Dataset().load({ id: 'test01' })
+// dataset is the entity, populated with mock response data
+// — call dataset.data() for the record itself
 console.log(dataset)
 ```
 
@@ -140,11 +141,11 @@ Entity instances remember their last match and data:
 const entity = client.Dataset()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data)
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -284,9 +285,27 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `help` |  |
-| `result` |  |
-| `success` |  |
+| `author` |  |
+| `author_email` |  |
+| `count` |  |
+| `facets` |  |
+| `groups` |  |
+| `id` |  |
+| `license_id` |  |
+| `license_title` |  |
+| `maintainer` |  |
+| `maintainer_email` |  |
+| `metadata_created` |  |
+| `metadata_modified` |  |
+| `name` |  |
+| `notes` |  |
+| `organization` |  |
+| `resources` |  |
+| `results` |  |
+| `sort` |  |
+| `tags` |  |
+| `title` |  |
+| `url` |  |
 
 Operations: load.
 
@@ -311,14 +330,32 @@ Create an instance: `const dataset = client.Dataset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `help` | `string` |  |
-| `result` | `Record<string, any>` |  |
-| `success` | `boolean` |  |
+| `author` | `string` |  |
+| `author_email` | `string` |  |
+| `count` | `number` |  |
+| `facets` | `Record<string, any>` |  |
+| `groups` | `any[]` |  |
+| `id` | `string` |  |
+| `license_id` | `string` |  |
+| `license_title` | `string` |  |
+| `maintainer` | `string` |  |
+| `maintainer_email` | `string` |  |
+| `metadata_created` | `string` |  |
+| `metadata_modified` | `string` |  |
+| `name` | `string` |  |
+| `notes` | `string` |  |
+| `organization` | `Record<string, any>` |  |
+| `resources` | `any[]` |  |
+| `results` | `any[]` |  |
+| `sort` | `string` |  |
+| `tags` | `any[]` |  |
+| `title` | `string` |  |
+| `url` | `string` |  |
 
 #### Example: Load
 
 ```ts
-const dataset = await client.Dataset().load()
+const dataset = await client.Dataset().load({ id: 'dataset_id' })
 ```
 
 
@@ -392,10 +429,10 @@ calls on the same instance can rely on this state.
 
 ```ts
 const dataset = client.Dataset()
-await dataset.load()
+await dataset.load({ id: "example_id" })
 
 // dataset.data() now returns the dataset data from the last `load`
-// dataset.match() returns the last match criteria
+// dataset.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

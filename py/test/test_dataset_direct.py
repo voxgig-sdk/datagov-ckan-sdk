@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from datagovckan_sdk.utility.voxgig_struct import voxgig_struct as vs
 from datagovckan_sdk import DatagovCkanSDK
-from core import helpers
+from datagovckan_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _dataset_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "DATAGOVCKAN_TEST_DATASET_ENTID": {},
-        "DATAGOVCKAN_TEST_LIVE": "FALSE",
+        "DATAGOV_CKAN_TEST_DATASET_ENTID": {},
+        "DATAGOV_CKAN_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("DATAGOVCKAN_TEST_LIVE") == "TRUE"
+    live = env.get("DATAGOV_CKAN_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

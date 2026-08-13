@@ -7,14 +7,50 @@
 -- edit by hand.
 
 ---@class Dataset
----@field help? string
----@field result? table
----@field success? boolean
+---@field author? string
+---@field author_email? string
+---@field count? number
+---@field facets? table
+---@field groups? table
+---@field id? string
+---@field license_id? string
+---@field license_title? string
+---@field maintainer? string
+---@field maintainer_email? string
+---@field metadata_created? string
+---@field metadata_modified? string
+---@field name? string
+---@field notes? string
+---@field organization? table
+---@field resources? table
+---@field results? table
+---@field sort? string
+---@field tags? table
+---@field title? string
+---@field url? string
 
 ---@class DatasetLoadMatch
----@field help? string
----@field result? table
----@field success? boolean
+---@field author? string
+---@field author_email? string
+---@field count? number
+---@field facets? table
+---@field groups? table
+---@field id string
+---@field license_id? string
+---@field license_title? string
+---@field maintainer? string
+---@field maintainer_email? string
+---@field metadata_created? string
+---@field metadata_modified? string
+---@field name? string
+---@field notes? string
+---@field organization? table
+---@field resources? table
+---@field results? table
+---@field sort? string
+---@field tags? table
+---@field title? string
+---@field url? string
 
 local M = {}
 

@@ -38,11 +38,11 @@ client = DatagovCkanSDK()
 
 ### 3. Load a dataset
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
-    dataset = client.Dataset().load()
+    dataset = client.Dataset().load({"id": "example_id"})
     print(dataset)
 except Exception as err:
     print(f"load failed: {err}")
@@ -55,7 +55,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    dataset = client.Dataset().load()
+    dataset = client.Dataset().load({"id": "example_id"})
     print(dataset)
 except Exception as err:
     print(f"load failed: {err}")
@@ -122,8 +122,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DatagovCkanSDK.test()
 
-# Entity ops return the bare record and raise on error.
-dataset = client.Dataset().load()
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+dataset = client.Dataset().load({"id": "test01"})
 # dataset contains the mock response record
 ```
 
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -240,9 +241,27 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `help` |  |
-| `result` |  |
-| `success` |  |
+| `author` |  |
+| `author_email` |  |
+| `count` |  |
+| `facets` |  |
+| `groups` |  |
+| `id` |  |
+| `license_id` |  |
+| `license_title` |  |
+| `maintainer` |  |
+| `maintainer_email` |  |
+| `metadata_created` |  |
+| `metadata_modified` |  |
+| `name` |  |
+| `notes` |  |
+| `organization` |  |
+| `resources` |  |
+| `results` |  |
+| `sort` |  |
+| `tags` |  |
+| `title` |  |
+| `url` |  |
 
 Operations: Load.
 
@@ -267,14 +286,32 @@ Create an instance: `dataset = client.Dataset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `help` | `str` |  |
-| `result` | `dict` |  |
-| `success` | `bool` |  |
+| `author` | `str` |  |
+| `author_email` | `str` |  |
+| `count` | `int` |  |
+| `facets` | `dict` |  |
+| `groups` | `list` |  |
+| `id` | `str` |  |
+| `license_id` | `str` |  |
+| `license_title` | `str` |  |
+| `maintainer` | `str` |  |
+| `maintainer_email` | `str` |  |
+| `metadata_created` | `str` |  |
+| `metadata_modified` | `str` |  |
+| `name` | `str` |  |
+| `notes` | `str` |  |
+| `organization` | `dict` |  |
+| `resources` | `list` |  |
+| `results` | `list` |  |
+| `sort` | `str` |  |
+| `tags` | `list` |  |
+| `title` | `str` |  |
+| `url` | `str` |  |
 
 #### Example: Load
 
 ```python
-dataset = client.Dataset().load()
+dataset = client.Dataset().load({"id": "dataset_id"})
 ```
 
 
@@ -354,7 +391,7 @@ stores the returned data and match criteria internally.
 
 ```python
 dataset = client.Dataset()
-dataset.load()
+dataset.load({"id": "example_id"})
 
 # dataset.data_get() now returns the dataset data from the last load
 # dataset.match_get() returns the last match criteria

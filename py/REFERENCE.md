@@ -87,9 +87,27 @@ dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | `str` | No |  |
-| `result` | `dict` | No |  |
-| `success` | `bool` | No |  |
+| `author` | `str` | No |  |
+| `author_email` | `str` | No |  |
+| `count` | `int` | No |  |
+| `facets` | `dict` | No |  |
+| `groups` | `list` | No |  |
+| `id` | `str` | No |  |
+| `license_id` | `str` | No |  |
+| `license_title` | `str` | No |  |
+| `maintainer` | `str` | No |  |
+| `maintainer_email` | `str` | No |  |
+| `metadata_created` | `str` | No |  |
+| `metadata_modified` | `str` | No |  |
+| `name` | `str` | No |  |
+| `notes` | `str` | No |  |
+| `organization` | `dict` | No |  |
+| `resources` | `list` | No |  |
+| `results` | `list` | No |  |
+| `sort` | `str` | No |  |
+| `tags` | `list` | No |  |
+| `title` | `str` | No |  |
+| `url` | `str` | No |  |
 
 ### Operations
 
@@ -98,7 +116,7 @@ dataset = client.Dataset()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Dataset().load()
+result = client.Dataset().load({"id": "dataset_id"})
 ```
 
 ### Common Methods

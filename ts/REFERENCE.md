@@ -116,9 +116,27 @@ const dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | `string` | No |  |
-| `result` | `Record<string, any>` | No |  |
-| `success` | `boolean` | No |  |
+| `author` | `string` | No |  |
+| `author_email` | `string` | No |  |
+| `count` | `number` | No |  |
+| `facets` | `Record<string, any>` | No |  |
+| `groups` | `any[]` | No |  |
+| `id` | `string` | No |  |
+| `license_id` | `string` | No |  |
+| `license_title` | `string` | No |  |
+| `maintainer` | `string` | No |  |
+| `maintainer_email` | `string` | No |  |
+| `metadata_created` | `string` | No |  |
+| `metadata_modified` | `string` | No |  |
+| `name` | `string` | No |  |
+| `notes` | `string` | No |  |
+| `organization` | `Record<string, any>` | No |  |
+| `resources` | `any[]` | No |  |
+| `results` | `any[]` | No |  |
+| `sort` | `string` | No |  |
+| `tags` | `any[]` | No |  |
+| `title` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
@@ -127,7 +145,7 @@ const dataset = client.Dataset()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Dataset().load()
+const result = await client.Dataset().load({ id: 'dataset_id' })
 ```
 
 ### Common Methods

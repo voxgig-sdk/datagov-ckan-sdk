@@ -34,8 +34,8 @@ client = DatagovCkanSDK.new
 
 ```ruby
 begin
-  # load returns the bare Dataset record (raises on error).
-  dataset = client.Dataset.load()
+  # load returns the ENTITY — call data_get for the Dataset record (raises on error).
+  dataset = client.Dataset.load({ "id" => "example_id" })
   puts dataset
 rescue => err
   warn "load failed: #{err}"
@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  dataset = client.Dataset.load()
+  dataset = client.Dataset.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -112,13 +112,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = DatagovCkanSDK.test
+client = DatagovCkanSDK.test({
+  "entity" => { "dataset" => { "test01" => { "id" => "test01" } } },
+})
 
-# Entity ops return the bare mock record (raises on error).
-dataset = client.Dataset.load()
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+dataset = client.Dataset.load({ "id" => "test01" })
 puts dataset
 ```
 
@@ -234,9 +238,27 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `help` |  |
-| `result` |  |
-| `success` |  |
+| `author` |  |
+| `author_email` |  |
+| `count` |  |
+| `facets` |  |
+| `groups` |  |
+| `id` |  |
+| `license_id` |  |
+| `license_title` |  |
+| `maintainer` |  |
+| `maintainer_email` |  |
+| `metadata_created` |  |
+| `metadata_modified` |  |
+| `name` |  |
+| `notes` |  |
+| `organization` |  |
+| `resources` |  |
+| `results` |  |
+| `sort` |  |
+| `tags` |  |
+| `title` |  |
+| `url` |  |
 
 Operations: Load.
 
@@ -261,15 +283,33 @@ Create an instance: `dataset = client.Dataset`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `help` | `String` |  |
-| `result` | `Hash` |  |
-| `success` | `Boolean` |  |
+| `author` | `String` |  |
+| `author_email` | `String` |  |
+| `count` | `Integer` |  |
+| `facets` | `Hash` |  |
+| `groups` | `Array` |  |
+| `id` | `String` |  |
+| `license_id` | `String` |  |
+| `license_title` | `String` |  |
+| `maintainer` | `String` |  |
+| `maintainer_email` | `String` |  |
+| `metadata_created` | `String` |  |
+| `metadata_modified` | `String` |  |
+| `name` | `String` |  |
+| `notes` | `String` |  |
+| `organization` | `Hash` |  |
+| `resources` | `Array` |  |
+| `results` | `Array` |  |
+| `sort` | `String` |  |
+| `tags` | `Array` |  |
+| `title` | `String` |  |
+| `url` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Dataset record (raises on error).
-dataset = client.Dataset.load()
+# load returns the ENTITY — call data_get for the Dataset record (raises on error).
+dataset = client.Dataset.load({ "id" => "dataset_id" })
 ```
 
 
@@ -350,7 +390,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 dataset = client.Dataset
-dataset.load()
+dataset.load({ "id" => "example_id" })
 
 # dataset.data_get now returns the dataset data from the last load
 # dataset.match_get returns the last match criteria

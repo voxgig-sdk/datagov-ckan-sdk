@@ -23,8 +23,8 @@ module DatagovCkanTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("DATAGOVCKAN_TEST_LIVE")
-    override = getenv("DATAGOVCKAN_TEST_OVERRIDE")
+    live = getenv("DATAGOV_CKAN_TEST_LIVE")
+    override = getenv("DATAGOV_CKAN_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module DatagovCkanTestRunner
       end
     end
 
-    explain = getenv("DATAGOVCKAN_TEST_EXPLAIN")
-    m["DATAGOVCKAN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("DATAGOV_CKAN_TEST_EXPLAIN")
+    m["DATAGOV_CKAN_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

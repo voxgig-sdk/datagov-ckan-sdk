@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# DatagovCkan SDK exists test
 
 import pytest
 from datagovckan_sdk import DatagovCkanSDK

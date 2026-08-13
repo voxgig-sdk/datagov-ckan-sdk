@@ -6,14 +6,50 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Dataset {
-  help?: string
-  result?: Record<string, any>
-  success?: boolean
+  author?: string
+  author_email?: string
+  count?: number
+  facets?: Record<string, any>
+  groups?: any[]
+  id?: string
+  license_id?: string
+  license_title?: string
+  maintainer?: string
+  maintainer_email?: string
+  metadata_created?: string
+  metadata_modified?: string
+  name?: string
+  notes?: string
+  organization?: Record<string, any>
+  resources?: any[]
+  results?: any[]
+  sort?: string
+  tags?: any[]
+  title?: string
+  url?: string
 }
 
 export interface DatasetLoadMatch {
-  help?: string
-  result?: Record<string, any>
-  success?: boolean
+  author?: string
+  author_email?: string
+  count?: number
+  facets?: Record<string, any>
+  groups?: any[]
+  id: string
+  license_id?: string
+  license_title?: string
+  maintainer?: string
+  maintainer_email?: string
+  metadata_created?: string
+  metadata_modified?: string
+  name?: string
+  notes?: string
+  organization?: Record<string, any>
+  resources?: any[]
+  results?: any[]
+  sort?: string
+  tags?: any[]
+  title?: string
+  url?: string
 }
 

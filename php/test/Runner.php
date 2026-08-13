@@ -43,8 +43,8 @@ class DatagovCkanTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('DATAGOVCKAN_TEST_LIVE');
-        $override = self::getenv('DATAGOVCKAN_TEST_OVERRIDE');
+        $live = self::getenv('DATAGOV_CKAN_TEST_LIVE');
+        $override = self::getenv('DATAGOV_CKAN_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class DatagovCkanTestRunner
             }
         }
 
-        $explain = self::getenv('DATAGOVCKAN_TEST_EXPLAIN');
+        $explain = self::getenv('DATAGOV_CKAN_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['DATAGOVCKAN_TEST_EXPLAIN'] = $explain;
+            $m['DATAGOV_CKAN_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

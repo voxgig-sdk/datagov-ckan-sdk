@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ DatagovCkanUtility::setRegistrar(function (DatagovCkanUtility $u): void {
     $u->prepare_params = [DatagovCkanPrepareParams::class, 'call'];
     $u->prepare_path = [DatagovCkanPreparePath::class, 'call'];
     $u->prepare_query = [DatagovCkanPrepareQuery::class, 'call'];
+    $u->graphql_body = [DatagovCkanGraphql::class, 'body'];
+    $u->graphql_errors = [DatagovCkanGraphql::class, 'errors'];
     $u->result_basic = [DatagovCkanResultBasic::class, 'call'];
     $u->result_body = [DatagovCkanResultBody::class, 'call'];
     $u->result_headers = [DatagovCkanResultHeaders::class, 'call'];

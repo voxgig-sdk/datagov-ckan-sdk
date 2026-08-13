@@ -10,35 +10,179 @@
 
 # Dataset entity data model.
 #
-# @!attribute [rw] help
+# @!attribute [rw] author
 #   @return [String, nil]
 #
-# @!attribute [rw] result
+# @!attribute [rw] author_email
+#   @return [String, nil]
+#
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] facets
 #   @return [Hash, nil]
 #
-# @!attribute [rw] success
-#   @return [Boolean, nil]
+# @!attribute [rw] groups
+#   @return [Array, nil]
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+#
+# @!attribute [rw] license_id
+#   @return [String, nil]
+#
+# @!attribute [rw] license_title
+#   @return [String, nil]
+#
+# @!attribute [rw] maintainer
+#   @return [String, nil]
+#
+# @!attribute [rw] maintainer_email
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata_created
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata_modified
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] notes
+#   @return [String, nil]
+#
+# @!attribute [rw] organization
+#   @return [Hash, nil]
+#
+# @!attribute [rw] resources
+#   @return [Array, nil]
+#
+# @!attribute [rw] results
+#   @return [Array, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
+#
+# @!attribute [rw] tags
+#   @return [Array, nil]
+#
+# @!attribute [rw] title
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
 Dataset = Struct.new(
-  :help,
-  :result,
-  :success,
+  :author,
+  :author_email,
+  :count,
+  :facets,
+  :groups,
+  :id,
+  :license_id,
+  :license_title,
+  :maintainer,
+  :maintainer_email,
+  :metadata_created,
+  :metadata_modified,
+  :name,
+  :notes,
+  :organization,
+  :resources,
+  :results,
+  :sort,
+  :tags,
+  :title,
+  :url,
   keyword_init: true
 )
 
 # Request payload for Dataset#load.
 #
-# @!attribute [rw] help
+# @!attribute [rw] author
 #   @return [String, nil]
 #
-# @!attribute [rw] result
+# @!attribute [rw] author_email
+#   @return [String, nil]
+#
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] facets
 #   @return [Hash, nil]
 #
-# @!attribute [rw] success
-#   @return [Boolean, nil]
+# @!attribute [rw] groups
+#   @return [Array, nil]
+#
+# @!attribute [rw] id
+#   @return [String]
+#
+# @!attribute [rw] license_id
+#   @return [String, nil]
+#
+# @!attribute [rw] license_title
+#   @return [String, nil]
+#
+# @!attribute [rw] maintainer
+#   @return [String, nil]
+#
+# @!attribute [rw] maintainer_email
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata_created
+#   @return [String, nil]
+#
+# @!attribute [rw] metadata_modified
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] notes
+#   @return [String, nil]
+#
+# @!attribute [rw] organization
+#   @return [Hash, nil]
+#
+# @!attribute [rw] resources
+#   @return [Array, nil]
+#
+# @!attribute [rw] results
+#   @return [Array, nil]
+#
+# @!attribute [rw] sort
+#   @return [String, nil]
+#
+# @!attribute [rw] tags
+#   @return [Array, nil]
+#
+# @!attribute [rw] title
+#   @return [String, nil]
+#
+# @!attribute [rw] url
+#   @return [String, nil]
 DatasetLoadMatch = Struct.new(
-  :help,
-  :result,
-  :success,
+  :author,
+  :author_email,
+  :count,
+  :facets,
+  :groups,
+  :id,
+  :license_id,
+  :license_title,
+  :maintainer,
+  :maintainer_email,
+  :metadata_created,
+  :metadata_modified,
+  :name,
+  :notes,
+  :organization,
+  :resources,
+  :results,
+  :sort,
+  :tags,
+  :title,
+  :url,
   keyword_init: true
 )
 

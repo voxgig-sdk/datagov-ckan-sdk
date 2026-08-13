@@ -90,9 +90,27 @@ local dataset = client:Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `help` | `string` | No |  |
-| `result` | `table` | No |  |
-| `success` | `boolean` | No |  |
+| `author` | `string` | No |  |
+| `author_email` | `string` | No |  |
+| `count` | `number` | No |  |
+| `facets` | `table` | No |  |
+| `groups` | `table` | No |  |
+| `id` | `string` | No |  |
+| `license_id` | `string` | No |  |
+| `license_title` | `string` | No |  |
+| `maintainer` | `string` | No |  |
+| `maintainer_email` | `string` | No |  |
+| `metadata_created` | `string` | No |  |
+| `metadata_modified` | `string` | No |  |
+| `name` | `string` | No |  |
+| `notes` | `string` | No |  |
+| `organization` | `table` | No |  |
+| `resources` | `table` | No |  |
+| `results` | `table` | No |  |
+| `sort` | `string` | No |  |
+| `tags` | `table` | No |  |
+| `title` | `string` | No |  |
+| `url` | `string` | No |  |
 
 ### Operations
 
@@ -101,7 +119,7 @@ local dataset = client:Dataset(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Dataset():load()
+local result, err = client:Dataset():load({ id = "dataset_id" })
 ```
 
 ### Common Methods

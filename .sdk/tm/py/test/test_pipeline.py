@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import DatagovCkanSDK
-from core.error import DatagovCkanError
-from core.result import DatagovCkanResult
-from core.response import DatagovCkanResponse
-from core.spec import DatagovCkanSpec
-from feature.base_feature import DatagovCkanBaseFeature
+from projectname_sdk.core.error import DatagovCkanError
+from projectname_sdk.core.result import DatagovCkanResult
+from projectname_sdk.core.response import DatagovCkanResponse
+from projectname_sdk.core.spec import DatagovCkanSpec
+from projectname_sdk.feature.base_feature import DatagovCkanBaseFeature
 
 
 def _client():
