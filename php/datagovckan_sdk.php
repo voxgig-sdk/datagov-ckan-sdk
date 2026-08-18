@@ -40,7 +40,7 @@ class DatagovCkanSDK
         $utility = new DatagovCkanUtility();
         $this->_utility = $utility;
 
-        $config = DatagovCkanConfig::make_config();
+        $config = DatagovCkanConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

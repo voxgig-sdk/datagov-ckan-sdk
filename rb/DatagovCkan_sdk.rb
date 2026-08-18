@@ -28,7 +28,7 @@ class DatagovCkanSDK
     utility = DatagovCkanUtility.new
     @_utility = utility
 
-    config = DatagovCkanConfig.make_config
+    config = DatagovCkanConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

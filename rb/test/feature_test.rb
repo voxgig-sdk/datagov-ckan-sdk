@@ -15,7 +15,7 @@ require_relative "../DatagovCkan_sdk"
 module DatagovCkanFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = DatagovCkanConfig.make_config["feature"]
+    f = DatagovCkanConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
