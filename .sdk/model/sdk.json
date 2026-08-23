@@ -36,126 +36,147 @@
               "active": true,
               "name": "author",
               "req": false,
+              "short": "Dataset author",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "author_email",
               "req": false,
+              "short": "Author email",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "count",
               "req": false,
+              "short": "Total number of matching datasets",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "facets",
               "req": false,
+              "short": "Facet results",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "groups",
               "req": false,
+              "short": "Groups this dataset belongs to",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Dataset identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "license_id",
               "req": false,
+              "short": "License identifier",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "license_title",
               "req": false,
+              "short": "License title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "maintainer",
               "req": false,
+              "short": "Dataset maintainer",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "maintainer_email",
               "req": false,
+              "short": "Maintainer email",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "metadata_created",
               "req": false,
+              "short": "Metadata creation timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "metadata_modified",
               "req": false,
+              "short": "Metadata modification timestamp",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Dataset name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "notes",
               "req": false,
+              "short": "Dataset description",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "organization",
               "req": false,
+              "short": "Organization information",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "resources",
               "req": false,
+              "short": "Dataset resources with URLs",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "results",
               "req": false,
+              "short": "Array of dataset metadata",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "sort",
               "req": false,
+              "short": "Sort order used",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "tags",
               "req": false,
+              "short": "Dataset tags",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "title",
               "req": false,
+              "short": "Dataset title",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "Dataset URL",
               "type": "`$STRING`"
             }
           ],

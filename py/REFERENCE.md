@@ -87,27 +87,27 @@ dataset = client.Dataset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `str` | No |  |
-| `author_email` | `str` | No |  |
-| `count` | `int` | No |  |
-| `facets` | `dict` | No |  |
-| `groups` | `list` | No |  |
-| `id` | `str` | No |  |
-| `license_id` | `str` | No |  |
-| `license_title` | `str` | No |  |
-| `maintainer` | `str` | No |  |
-| `maintainer_email` | `str` | No |  |
-| `metadata_created` | `str` | No |  |
-| `metadata_modified` | `str` | No |  |
-| `name` | `str` | No |  |
-| `notes` | `str` | No |  |
-| `organization` | `dict` | No |  |
-| `resources` | `list` | No |  |
-| `results` | `list` | No |  |
-| `sort` | `str` | No |  |
-| `tags` | `list` | No |  |
-| `title` | `str` | No |  |
-| `url` | `str` | No |  |
+| `author` | `str` | No | Dataset author |
+| `author_email` | `str` | No | Author email |
+| `count` | `int` | No | Total number of matching datasets |
+| `facets` | `dict` | No | Facet results |
+| `groups` | `list` | No | Groups this dataset belongs to |
+| `id` | `str` | No | Dataset identifier |
+| `license_id` | `str` | No | License identifier |
+| `license_title` | `str` | No | License title |
+| `maintainer` | `str` | No | Dataset maintainer |
+| `maintainer_email` | `str` | No | Maintainer email |
+| `metadata_created` | `str` | No | Metadata creation timestamp |
+| `metadata_modified` | `str` | No | Metadata modification timestamp |
+| `name` | `str` | No | Dataset name |
+| `notes` | `str` | No | Dataset description |
+| `organization` | `dict` | No | Organization information |
+| `resources` | `list` | No | Dataset resources with URLs |
+| `results` | `list` | No | Array of dataset metadata |
+| `sort` | `str` | No | Sort order used |
+| `tags` | `list` | No | Dataset tags |
+| `title` | `str` | No | Dataset title |
+| `url` | `str` | No | Dataset URL |
 
 ### Operations
 

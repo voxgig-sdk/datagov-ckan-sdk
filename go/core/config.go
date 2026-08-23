@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "DatagovCkan",
+			"slug": "datagov-ckan",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,86 +36,107 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
+						"short": "Dataset author",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "author_email",
+						"short": "Author email",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "count",
+						"short": "Total number of matching datasets",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "facets",
+						"short": "Facet results",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "groups",
+						"short": "Groups this dataset belongs to",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Dataset identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "license_id",
+						"short": "License identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "license_title",
+						"short": "License title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "maintainer",
+						"short": "Dataset maintainer",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "maintainer_email",
+						"short": "Maintainer email",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "metadata_created",
+						"short": "Metadata creation timestamp",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "metadata_modified",
+						"short": "Metadata modification timestamp",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Dataset name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "notes",
+						"short": "Dataset description",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "organization",
+						"short": "Organization information",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "resources",
+						"short": "Dataset resources with URLs",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "results",
+						"short": "Array of dataset metadata",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "sort",
+						"short": "Sort order used",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tags",
+						"short": "Dataset tags",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "title",
+						"short": "Dataset title",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "Dataset URL",
 						"type": "`$STRING`",
 					},
 				},

@@ -93,27 +93,27 @@ dataset = client.Dataset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `String` | No |  |
-| `author_email` | `String` | No |  |
-| `count` | `Integer` | No |  |
-| `facets` | `Hash` | No |  |
-| `groups` | `Array` | No |  |
-| `id` | `String` | No |  |
-| `license_id` | `String` | No |  |
-| `license_title` | `String` | No |  |
-| `maintainer` | `String` | No |  |
-| `maintainer_email` | `String` | No |  |
-| `metadata_created` | `String` | No |  |
-| `metadata_modified` | `String` | No |  |
-| `name` | `String` | No |  |
-| `notes` | `String` | No |  |
-| `organization` | `Hash` | No |  |
-| `resources` | `Array` | No |  |
-| `results` | `Array` | No |  |
-| `sort` | `String` | No |  |
-| `tags` | `Array` | No |  |
-| `title` | `String` | No |  |
-| `url` | `String` | No |  |
+| `author` | `String` | No | Dataset author |
+| `author_email` | `String` | No | Author email |
+| `count` | `Integer` | No | Total number of matching datasets |
+| `facets` | `Hash` | No | Facet results |
+| `groups` | `Array` | No | Groups this dataset belongs to |
+| `id` | `String` | No | Dataset identifier |
+| `license_id` | `String` | No | License identifier |
+| `license_title` | `String` | No | License title |
+| `maintainer` | `String` | No | Dataset maintainer |
+| `maintainer_email` | `String` | No | Maintainer email |
+| `metadata_created` | `String` | No | Metadata creation timestamp |
+| `metadata_modified` | `String` | No | Metadata modification timestamp |
+| `name` | `String` | No | Dataset name |
+| `notes` | `String` | No | Dataset description |
+| `organization` | `Hash` | No | Organization information |
+| `resources` | `Array` | No | Dataset resources with URLs |
+| `results` | `Array` | No | Array of dataset metadata |
+| `sort` | `String` | No | Sort order used |
+| `tags` | `Array` | No | Dataset tags |
+| `title` | `String` | No | Dataset title |
+| `url` | `String` | No | Dataset URL |
 
 ### Operations
 

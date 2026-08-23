@@ -98,27 +98,27 @@ fmt.Println(dataset.GetName()) // "dataset"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | No |  |
-| `author_email` | `string` | No |  |
-| `count` | `int` | No |  |
-| `facets` | `map[string]any` | No |  |
-| `groups` | `[]any` | No |  |
-| `id` | `string` | No |  |
-| `license_id` | `string` | No |  |
-| `license_title` | `string` | No |  |
-| `maintainer` | `string` | No |  |
-| `maintainer_email` | `string` | No |  |
-| `metadata_created` | `string` | No |  |
-| `metadata_modified` | `string` | No |  |
-| `name` | `string` | No |  |
-| `notes` | `string` | No |  |
-| `organization` | `map[string]any` | No |  |
-| `resources` | `[]any` | No |  |
-| `results` | `[]any` | No |  |
-| `sort` | `string` | No |  |
-| `tags` | `[]any` | No |  |
-| `title` | `string` | No |  |
-| `url` | `string` | No |  |
+| `author` | `string` | No | Dataset author |
+| `author_email` | `string` | No | Author email |
+| `count` | `int` | No | Total number of matching datasets |
+| `facets` | `map[string]any` | No | Facet results |
+| `groups` | `[]any` | No | Groups this dataset belongs to |
+| `id` | `string` | No | Dataset identifier |
+| `license_id` | `string` | No | License identifier |
+| `license_title` | `string` | No | License title |
+| `maintainer` | `string` | No | Dataset maintainer |
+| `maintainer_email` | `string` | No | Maintainer email |
+| `metadata_created` | `string` | No | Metadata creation timestamp |
+| `metadata_modified` | `string` | No | Metadata modification timestamp |
+| `name` | `string` | No | Dataset name |
+| `notes` | `string` | No | Dataset description |
+| `organization` | `map[string]any` | No | Organization information |
+| `resources` | `[]any` | No | Dataset resources with URLs |
+| `results` | `[]any` | No | Array of dataset metadata |
+| `sort` | `string` | No | Sort order used |
+| `tags` | `[]any` | No | Dataset tags |
+| `title` | `string` | No | Dataset title |
+| `url` | `string` | No | Dataset URL |
 
 ### Operations
 

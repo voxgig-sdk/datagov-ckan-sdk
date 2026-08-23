@@ -241,27 +241,27 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `author_email` |  |
-| `count` |  |
-| `facets` |  |
-| `groups` |  |
-| `id` |  |
-| `license_id` |  |
-| `license_title` |  |
-| `maintainer` |  |
-| `maintainer_email` |  |
-| `metadata_created` |  |
-| `metadata_modified` |  |
-| `name` |  |
-| `notes` |  |
-| `organization` |  |
-| `resources` |  |
-| `results` |  |
-| `sort` |  |
-| `tags` |  |
-| `title` |  |
-| `url` |  |
+| `author` | Dataset author |
+| `author_email` | Author email |
+| `count` | Total number of matching datasets |
+| `facets` | Facet results |
+| `groups` | Groups this dataset belongs to |
+| `id` | Dataset identifier |
+| `license_id` | License identifier |
+| `license_title` | License title |
+| `maintainer` | Dataset maintainer |
+| `maintainer_email` | Maintainer email |
+| `metadata_created` | Metadata creation timestamp |
+| `metadata_modified` | Metadata modification timestamp |
+| `name` | Dataset name |
+| `notes` | Dataset description |
+| `organization` | Organization information |
+| `resources` | Dataset resources with URLs |
+| `results` | Array of dataset metadata |
+| `sort` | Sort order used |
+| `tags` | Dataset tags |
+| `title` | Dataset title |
+| `url` | Dataset URL |
 
 Operations: Load.
 
@@ -286,27 +286,27 @@ Create an instance: `dataset = client.Dataset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `str` |  |
-| `author_email` | `str` |  |
-| `count` | `int` |  |
-| `facets` | `dict` |  |
-| `groups` | `list` |  |
-| `id` | `str` |  |
-| `license_id` | `str` |  |
-| `license_title` | `str` |  |
-| `maintainer` | `str` |  |
-| `maintainer_email` | `str` |  |
-| `metadata_created` | `str` |  |
-| `metadata_modified` | `str` |  |
-| `name` | `str` |  |
-| `notes` | `str` |  |
-| `organization` | `dict` |  |
-| `resources` | `list` |  |
-| `results` | `list` |  |
-| `sort` | `str` |  |
-| `tags` | `list` |  |
-| `title` | `str` |  |
-| `url` | `str` |  |
+| `author` | `str` | Dataset author |
+| `author_email` | `str` | Author email |
+| `count` | `int` | Total number of matching datasets |
+| `facets` | `dict` | Facet results |
+| `groups` | `list` | Groups this dataset belongs to |
+| `id` | `str` | Dataset identifier |
+| `license_id` | `str` | License identifier |
+| `license_title` | `str` | License title |
+| `maintainer` | `str` | Dataset maintainer |
+| `maintainer_email` | `str` | Maintainer email |
+| `metadata_created` | `str` | Metadata creation timestamp |
+| `metadata_modified` | `str` | Metadata modification timestamp |
+| `name` | `str` | Dataset name |
+| `notes` | `str` | Dataset description |
+| `organization` | `dict` | Organization information |
+| `resources` | `list` | Dataset resources with URLs |
+| `results` | `list` | Array of dataset metadata |
+| `sort` | `str` | Sort order used |
+| `tags` | `list` | Dataset tags |
+| `title` | `str` | Dataset title |
+| `url` | `str` | Dataset URL |
 
 #### Example: Load
 

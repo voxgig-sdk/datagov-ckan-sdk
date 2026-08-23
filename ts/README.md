@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,27 +285,27 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `author_email` |  |
-| `count` |  |
-| `facets` |  |
-| `groups` |  |
-| `id` |  |
-| `license_id` |  |
-| `license_title` |  |
-| `maintainer` |  |
-| `maintainer_email` |  |
-| `metadata_created` |  |
-| `metadata_modified` |  |
-| `name` |  |
-| `notes` |  |
-| `organization` |  |
-| `resources` |  |
-| `results` |  |
-| `sort` |  |
-| `tags` |  |
-| `title` |  |
-| `url` |  |
+| `author` | Dataset author |
+| `author_email` | Author email |
+| `count` | Total number of matching datasets |
+| `facets` | Facet results |
+| `groups` | Groups this dataset belongs to |
+| `id` | Dataset identifier |
+| `license_id` | License identifier |
+| `license_title` | License title |
+| `maintainer` | Dataset maintainer |
+| `maintainer_email` | Maintainer email |
+| `metadata_created` | Metadata creation timestamp |
+| `metadata_modified` | Metadata modification timestamp |
+| `name` | Dataset name |
+| `notes` | Dataset description |
+| `organization` | Organization information |
+| `resources` | Dataset resources with URLs |
+| `results` | Array of dataset metadata |
+| `sort` | Sort order used |
+| `tags` | Dataset tags |
+| `title` | Dataset title |
+| `url` | Dataset URL |
 
 Operations: load.
 
@@ -330,27 +330,27 @@ Create an instance: `const dataset = client.Dataset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
-| `author_email` | `string` |  |
-| `count` | `number` |  |
-| `facets` | `Record<string, any>` |  |
-| `groups` | `any[]` |  |
-| `id` | `string` |  |
-| `license_id` | `string` |  |
-| `license_title` | `string` |  |
-| `maintainer` | `string` |  |
-| `maintainer_email` | `string` |  |
-| `metadata_created` | `string` |  |
-| `metadata_modified` | `string` |  |
-| `name` | `string` |  |
-| `notes` | `string` |  |
-| `organization` | `Record<string, any>` |  |
-| `resources` | `any[]` |  |
-| `results` | `any[]` |  |
-| `sort` | `string` |  |
-| `tags` | `any[]` |  |
-| `title` | `string` |  |
-| `url` | `string` |  |
+| `author` | `string` | Dataset author |
+| `author_email` | `string` | Author email |
+| `count` | `number` | Total number of matching datasets |
+| `facets` | `Record<string, any>` | Facet results |
+| `groups` | `any[]` | Groups this dataset belongs to |
+| `id` | `string` | Dataset identifier |
+| `license_id` | `string` | License identifier |
+| `license_title` | `string` | License title |
+| `maintainer` | `string` | Dataset maintainer |
+| `maintainer_email` | `string` | Maintainer email |
+| `metadata_created` | `string` | Metadata creation timestamp |
+| `metadata_modified` | `string` | Metadata modification timestamp |
+| `name` | `string` | Dataset name |
+| `notes` | `string` | Dataset description |
+| `organization` | `Record<string, any>` | Organization information |
+| `resources` | `any[]` | Dataset resources with URLs |
+| `results` | `any[]` | Array of dataset metadata |
+| `sort` | `string` | Sort order used |
+| `tags` | `any[]` | Dataset tags |
+| `title` | `string` | Dataset title |
+| `url` | `string` | Dataset URL |
 
 #### Example: Load
 

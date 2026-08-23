@@ -19,6 +19,9 @@ module DatagovCkanConfig
     {
       "main" => {
         "name" => "DatagovCkan",
+        "slug" => "datagov-ckan",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -41,86 +44,107 @@ module DatagovCkanConfig
           "fields" => [
             {
               "name" => "author",
+              "short" => "Dataset author",
               "type" => "`$STRING`",
             },
             {
               "name" => "author_email",
+              "short" => "Author email",
               "type" => "`$STRING`",
             },
             {
               "name" => "count",
+              "short" => "Total number of matching datasets",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "facets",
+              "short" => "Facet results",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "groups",
+              "short" => "Groups this dataset belongs to",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "id",
+              "short" => "Dataset identifier",
               "type" => "`$STRING`",
             },
             {
               "name" => "license_id",
+              "short" => "License identifier",
               "type" => "`$STRING`",
             },
             {
               "name" => "license_title",
+              "short" => "License title",
               "type" => "`$STRING`",
             },
             {
               "name" => "maintainer",
+              "short" => "Dataset maintainer",
               "type" => "`$STRING`",
             },
             {
               "name" => "maintainer_email",
+              "short" => "Maintainer email",
               "type" => "`$STRING`",
             },
             {
               "name" => "metadata_created",
+              "short" => "Metadata creation timestamp",
               "type" => "`$STRING`",
             },
             {
               "name" => "metadata_modified",
+              "short" => "Metadata modification timestamp",
               "type" => "`$STRING`",
             },
             {
               "name" => "name",
+              "short" => "Dataset name",
               "type" => "`$STRING`",
             },
             {
               "name" => "notes",
+              "short" => "Dataset description",
               "type" => "`$STRING`",
             },
             {
               "name" => "organization",
+              "short" => "Organization information",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "resources",
+              "short" => "Dataset resources with URLs",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "results",
+              "short" => "Array of dataset metadata",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "sort",
+              "short" => "Sort order used",
               "type" => "`$STRING`",
             },
             {
               "name" => "tags",
+              "short" => "Dataset tags",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "title",
+              "short" => "Dataset title",
               "type" => "`$STRING`",
             },
             {
               "name" => "url",
+              "short" => "Dataset URL",
               "type" => "`$STRING`",
             },
           ],

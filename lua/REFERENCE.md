@@ -90,27 +90,27 @@ local dataset = client:Dataset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | No |  |
-| `author_email` | `string` | No |  |
-| `count` | `number` | No |  |
-| `facets` | `table` | No |  |
-| `groups` | `table` | No |  |
-| `id` | `string` | No |  |
-| `license_id` | `string` | No |  |
-| `license_title` | `string` | No |  |
-| `maintainer` | `string` | No |  |
-| `maintainer_email` | `string` | No |  |
-| `metadata_created` | `string` | No |  |
-| `metadata_modified` | `string` | No |  |
-| `name` | `string` | No |  |
-| `notes` | `string` | No |  |
-| `organization` | `table` | No |  |
-| `resources` | `table` | No |  |
-| `results` | `table` | No |  |
-| `sort` | `string` | No |  |
-| `tags` | `table` | No |  |
-| `title` | `string` | No |  |
-| `url` | `string` | No |  |
+| `author` | `string` | No | Dataset author |
+| `author_email` | `string` | No | Author email |
+| `count` | `number` | No | Total number of matching datasets |
+| `facets` | `table` | No | Facet results |
+| `groups` | `table` | No | Groups this dataset belongs to |
+| `id` | `string` | No | Dataset identifier |
+| `license_id` | `string` | No | License identifier |
+| `license_title` | `string` | No | License title |
+| `maintainer` | `string` | No | Dataset maintainer |
+| `maintainer_email` | `string` | No | Maintainer email |
+| `metadata_created` | `string` | No | Metadata creation timestamp |
+| `metadata_modified` | `string` | No | Metadata modification timestamp |
+| `name` | `string` | No | Dataset name |
+| `notes` | `string` | No | Dataset description |
+| `organization` | `table` | No | Organization information |
+| `resources` | `table` | No | Dataset resources with URLs |
+| `results` | `table` | No | Array of dataset metadata |
+| `sort` | `string` | No | Sort order used |
+| `tags` | `table` | No | Dataset tags |
+| `title` | `string` | No | Dataset title |
+| `url` | `string` | No | Dataset URL |
 
 ### Operations
 

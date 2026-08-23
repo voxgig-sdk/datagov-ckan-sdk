@@ -92,27 +92,27 @@ $dataset = $client->Dataset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `string` | No |  |
-| `author_email` | `string` | No |  |
-| `count` | `int` | No |  |
-| `facets` | `array` | No |  |
-| `groups` | `array` | No |  |
-| `id` | `string` | No |  |
-| `license_id` | `string` | No |  |
-| `license_title` | `string` | No |  |
-| `maintainer` | `string` | No |  |
-| `maintainer_email` | `string` | No |  |
-| `metadata_created` | `string` | No |  |
-| `metadata_modified` | `string` | No |  |
-| `name` | `string` | No |  |
-| `notes` | `string` | No |  |
-| `organization` | `array` | No |  |
-| `resources` | `array` | No |  |
-| `results` | `array` | No |  |
-| `sort` | `string` | No |  |
-| `tags` | `array` | No |  |
-| `title` | `string` | No |  |
-| `url` | `string` | No |  |
+| `author` | `string` | No | Dataset author |
+| `author_email` | `string` | No | Author email |
+| `count` | `int` | No | Total number of matching datasets |
+| `facets` | `array` | No | Facet results |
+| `groups` | `array` | No | Groups this dataset belongs to |
+| `id` | `string` | No | Dataset identifier |
+| `license_id` | `string` | No | License identifier |
+| `license_title` | `string` | No | License title |
+| `maintainer` | `string` | No | Dataset maintainer |
+| `maintainer_email` | `string` | No | Maintainer email |
+| `metadata_created` | `string` | No | Metadata creation timestamp |
+| `metadata_modified` | `string` | No | Metadata modification timestamp |
+| `name` | `string` | No | Dataset name |
+| `notes` | `string` | No | Dataset description |
+| `organization` | `array` | No | Organization information |
+| `resources` | `array` | No | Dataset resources with URLs |
+| `results` | `array` | No | Array of dataset metadata |
+| `sort` | `string` | No | Sort order used |
+| `tags` | `array` | No | Dataset tags |
+| `title` | `string` | No | Dataset title |
+| `url` | `string` | No | Dataset URL |
 
 ### Operations
 

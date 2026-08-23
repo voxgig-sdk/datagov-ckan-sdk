@@ -238,27 +238,27 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `author_email` |  |
-| `count` |  |
-| `facets` |  |
-| `groups` |  |
-| `id` |  |
-| `license_id` |  |
-| `license_title` |  |
-| `maintainer` |  |
-| `maintainer_email` |  |
-| `metadata_created` |  |
-| `metadata_modified` |  |
-| `name` |  |
-| `notes` |  |
-| `organization` |  |
-| `resources` |  |
-| `results` |  |
-| `sort` |  |
-| `tags` |  |
-| `title` |  |
-| `url` |  |
+| `author` | Dataset author |
+| `author_email` | Author email |
+| `count` | Total number of matching datasets |
+| `facets` | Facet results |
+| `groups` | Groups this dataset belongs to |
+| `id` | Dataset identifier |
+| `license_id` | License identifier |
+| `license_title` | License title |
+| `maintainer` | Dataset maintainer |
+| `maintainer_email` | Maintainer email |
+| `metadata_created` | Metadata creation timestamp |
+| `metadata_modified` | Metadata modification timestamp |
+| `name` | Dataset name |
+| `notes` | Dataset description |
+| `organization` | Organization information |
+| `resources` | Dataset resources with URLs |
+| `results` | Array of dataset metadata |
+| `sort` | Sort order used |
+| `tags` | Dataset tags |
+| `title` | Dataset title |
+| `url` | Dataset URL |
 
 Operations: Load.
 
@@ -283,27 +283,27 @@ Create an instance: `dataset = client.Dataset`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `String` |  |
-| `author_email` | `String` |  |
-| `count` | `Integer` |  |
-| `facets` | `Hash` |  |
-| `groups` | `Array` |  |
-| `id` | `String` |  |
-| `license_id` | `String` |  |
-| `license_title` | `String` |  |
-| `maintainer` | `String` |  |
-| `maintainer_email` | `String` |  |
-| `metadata_created` | `String` |  |
-| `metadata_modified` | `String` |  |
-| `name` | `String` |  |
-| `notes` | `String` |  |
-| `organization` | `Hash` |  |
-| `resources` | `Array` |  |
-| `results` | `Array` |  |
-| `sort` | `String` |  |
-| `tags` | `Array` |  |
-| `title` | `String` |  |
-| `url` | `String` |  |
+| `author` | `String` | Dataset author |
+| `author_email` | `String` | Author email |
+| `count` | `Integer` | Total number of matching datasets |
+| `facets` | `Hash` | Facet results |
+| `groups` | `Array` | Groups this dataset belongs to |
+| `id` | `String` | Dataset identifier |
+| `license_id` | `String` | License identifier |
+| `license_title` | `String` | License title |
+| `maintainer` | `String` | Dataset maintainer |
+| `maintainer_email` | `String` | Maintainer email |
+| `metadata_created` | `String` | Metadata creation timestamp |
+| `metadata_modified` | `String` | Metadata modification timestamp |
+| `name` | `String` | Dataset name |
+| `notes` | `String` | Dataset description |
+| `organization` | `Hash` | Organization information |
+| `resources` | `Array` | Dataset resources with URLs |
+| `results` | `Array` | Array of dataset metadata |
+| `sort` | `String` | Sort order used |
+| `tags` | `Array` | Dataset tags |
+| `title` | `String` | Dataset title |
+| `url` | `String` | Dataset URL |
 
 #### Example: Load
 

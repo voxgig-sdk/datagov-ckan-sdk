@@ -8,106 +8,127 @@ main: kit: entity: dataset: {
     {
       name: "author"
       req: false
+      short: "Dataset author"
       type: "`$STRING`"
     }
     {
       name: "author_email"
       req: false
+      short: "Author email"
       type: "`$STRING`"
     }
     {
       name: "count"
       req: false
+      short: "Total number of matching datasets"
       type: "`$INTEGER`"
     }
     {
       name: "facets"
       req: false
+      short: "Facet results"
       type: "`$OBJECT`"
     }
     {
       name: "groups"
       req: false
+      short: "Groups this dataset belongs to"
       type: "`$ARRAY`"
     }
     {
       name: "id"
       req: false
+      short: "Dataset identifier"
       type: "`$STRING`"
     }
     {
       name: "license_id"
       req: false
+      short: "License identifier"
       type: "`$STRING`"
     }
     {
       name: "license_title"
       req: false
+      short: "License title"
       type: "`$STRING`"
     }
     {
       name: "maintainer"
       req: false
+      short: "Dataset maintainer"
       type: "`$STRING`"
     }
     {
       name: "maintainer_email"
       req: false
+      short: "Maintainer email"
       type: "`$STRING`"
     }
     {
       name: "metadata_created"
       req: false
+      short: "Metadata creation timestamp"
       type: "`$STRING`"
     }
     {
       name: "metadata_modified"
       req: false
+      short: "Metadata modification timestamp"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Dataset name"
       type: "`$STRING`"
     }
     {
       name: "notes"
       req: false
+      short: "Dataset description"
       type: "`$STRING`"
     }
     {
       name: "organization"
       req: false
+      short: "Organization information"
       type: "`$OBJECT`"
     }
     {
       name: "resources"
       req: false
+      short: "Dataset resources with URLs"
       type: "`$ARRAY`"
     }
     {
       name: "results"
       req: false
+      short: "Array of dataset metadata"
       type: "`$ARRAY`"
     }
     {
       name: "sort"
       req: false
+      short: "Sort order used"
       type: "`$STRING`"
     }
     {
       name: "tags"
       req: false
+      short: "Dataset tags"
       type: "`$ARRAY`"
     }
     {
       name: "title"
       req: false
+      short: "Dataset title"
       type: "`$STRING`"
     }
     {
       name: "url"
       req: false
+      short: "Dataset URL"
       type: "`$STRING`"
     }
   ]
