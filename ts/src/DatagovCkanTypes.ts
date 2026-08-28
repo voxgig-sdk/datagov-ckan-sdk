@@ -30,26 +30,11 @@ export interface Dataset {
 }
 
 export interface DatasetLoadMatch {
-  author?: string
-  author_email?: string
-  count?: number
-  facets?: Record<string, any>
-  groups?: any[]
-  id: string
-  license_id?: string
-  license_title?: string
-  maintainer?: string
-  maintainer_email?: string
-  metadata_created?: string
-  metadata_modified?: string
-  name?: string
-  notes?: string
-  organization?: Record<string, any>
-  resources?: any[]
-  results?: any[]
+  facet_field?: any[]
+  fq?: string
+  q?: string
+  row?: number
   sort?: string
-  tags?: any[]
-  title?: string
-  url?: string
+  start?: number
 }
 

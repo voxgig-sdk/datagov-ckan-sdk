@@ -36,7 +36,7 @@ local client = sdk.new()
 ### 3. Load a dataset
 
 ```lua
-local dataset, err = client:Dataset():load({ id = "example_id" })
+local dataset, err = client:Dataset():load()
 if err then error(err) end
 print(dataset)
 ```
@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local dataset, err = client:Dataset():load({ id = "example_id" })
+local dataset, err = client:Dataset():load()
 if err then error(err) end
 ```
 
@@ -106,7 +106,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Dataset():load({ id = "test01" })
+local result, err = client:Dataset():load()
 -- result is the returned data; err is set on failure
 ```
 
@@ -212,7 +212,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local dataset, err = client:Dataset():load({ id = "example_id" })
+    local dataset, err = client:Dataset():load()
     if err then error(err) end
     -- dataset is the loaded record
 
@@ -295,8 +295,31 @@ Create an instance: `local dataset = client:Dataset(nil)`
 #### Example: Load
 
 ```lua
-local dataset, err = client:Dataset():load({ id = "dataset_id" })
+local dataset, err = client:Dataset():load()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -376,7 +399,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local dataset = client:Dataset()
-dataset:load({ id = "example_id" })
+dataset:load()
 
 -- dataset:data_get() now returns the dataset data from the last load
 -- dataset:match_get() returns the last match criteria

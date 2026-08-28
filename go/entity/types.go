@@ -39,27 +39,12 @@ type Dataset struct {
 
 // DatasetLoadMatch is the typed request payload for Dataset.LoadTyped.
 type DatasetLoadMatch struct {
-	Author *string `json:"author,omitempty"`
-	AuthorEmail *string `json:"author_email,omitempty"`
-	Count *int `json:"count,omitempty"`
-	Facets *map[string]any `json:"facets,omitempty"`
-	Groups *[]any `json:"groups,omitempty"`
-	Id string `json:"id"`
-	LicenseId *string `json:"license_id,omitempty"`
-	LicenseTitle *string `json:"license_title,omitempty"`
-	Maintainer *string `json:"maintainer,omitempty"`
-	MaintainerEmail *string `json:"maintainer_email,omitempty"`
-	MetadataCreated *string `json:"metadata_created,omitempty"`
-	MetadataModified *string `json:"metadata_modified,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Notes *string `json:"notes,omitempty"`
-	Organization *map[string]any `json:"organization,omitempty"`
-	Resources *[]any `json:"resources,omitempty"`
-	Results *[]any `json:"results,omitempty"`
+	FacetField *[]any `json:"facet_field,omitempty"`
+	Fq *string `json:"fq,omitempty"`
+	Q *string `json:"q,omitempty"`
+	Row *int `json:"row,omitempty"`
 	Sort *string `json:"sort,omitempty"`
-	Tags *[]any `json:"tags,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Url *string `json:"url,omitempty"`
+	Start *int `json:"start,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

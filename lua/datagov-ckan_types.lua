@@ -30,27 +30,12 @@
 ---@field url? string
 
 ---@class DatasetLoadMatch
----@field author? string
----@field author_email? string
----@field count? number
----@field facets? table
----@field groups? table
----@field id string
----@field license_id? string
----@field license_title? string
----@field maintainer? string
----@field maintainer_email? string
----@field metadata_created? string
----@field metadata_modified? string
----@field name? string
----@field notes? string
----@field organization? table
----@field resources? table
----@field results? table
+---@field facet_field? table
+---@field fq? string
+---@field q? string
+---@field row? number
 ---@field sort? string
----@field tags? table
----@field title? string
----@field url? string
+---@field start? number
 
 local M = {}
 

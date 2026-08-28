@@ -40,28 +40,10 @@ class Dataset(TypedDict, total=False):
     url: str
 
 
-class DatasetLoadMatchRequired(TypedDict):
-    id: str
-
-
-class DatasetLoadMatch(DatasetLoadMatchRequired, total=False):
-    author: str
-    author_email: str
-    count: int
-    facets: dict
-    groups: list
-    license_id: str
-    license_title: str
-    maintainer: str
-    maintainer_email: str
-    metadata_created: str
-    metadata_modified: str
-    name: str
-    notes: str
-    organization: dict
-    resources: list
-    results: list
+class DatasetLoadMatch(TypedDict, total=False):
+    facet_field: list
+    fq: str
+    q: str
+    row: int
     sort: str
-    tags: list
-    title: str
-    url: str
+    start: int

@@ -36,7 +36,7 @@ $client = new DatagovCkanSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the Dataset record (throws on error).
-    $dataset = $client->Dataset()->load(["id" => "example_id"]);
+    $dataset = $client->Dataset()->load();
     print_r($dataset);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $dataset = $client->Dataset()->load(["id" => "example_id"]);
+    $dataset = $client->Dataset()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -118,17 +118,14 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = DatagovCkanSDK::test([
-    "entity" => ["dataset" => ["test01" => ["id" => "test01"]]],
-]);
+$client = DatagovCkanSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$dataset = $client->Dataset()->load(["id" => "test01"]);
+$dataset = $client->Dataset()->load();
 print_r($dataset);
 ```
 
@@ -319,8 +316,31 @@ Create an instance: `$dataset = $client->Dataset();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Dataset record (throws on error).
-$dataset = $client->Dataset()->load(["id" => "dataset_id"]);
+$dataset = $client->Dataset()->load();
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -400,7 +420,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $dataset = $client->Dataset();
-$dataset->load(["id" => "example_id"]);
+$dataset->load();
 
 // $dataset->data_get() now returns the dataset data from the last load
 // $dataset->match_get() returns the last match criteria

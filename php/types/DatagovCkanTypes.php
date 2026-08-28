@@ -41,26 +41,11 @@ class Dataset
 /** Request payload for Dataset#load. */
 class DatasetLoadMatch
 {
-    public ?string $author = null;
-    public ?string $author_email = null;
-    public ?int $count = null;
-    public ?array $facets = null;
-    public ?array $groups = null;
-    public string $id;
-    public ?string $license_id = null;
-    public ?string $license_title = null;
-    public ?string $maintainer = null;
-    public ?string $maintainer_email = null;
-    public ?string $metadata_created = null;
-    public ?string $metadata_modified = null;
-    public ?string $name = null;
-    public ?string $notes = null;
-    public ?array $organization = null;
-    public ?array $resources = null;
-    public ?array $results = null;
+    public ?array $facet_field = null;
+    public ?string $fq = null;
+    public ?string $q = null;
+    public ?int $row = null;
     public ?string $sort = null;
-    public ?array $tags = null;
-    public ?string $title = null;
-    public ?string $url = null;
+    public ?int $start = null;
 }
 
